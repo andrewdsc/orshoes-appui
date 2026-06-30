@@ -1,24 +1,24 @@
-/* Orshoes App Stylesheet - Senior Friendly Version (高齡友善高對比版) */
+/* Orshoes App Stylesheet - Senior Friendly Light Theme (高齡友善明亮輕快版) */
 
 /* RESET & VARIABLES */
 :root {
-    --bg-dark: #050814;
-    --bg-card: #131B2E;
-    --bg-card-hover: #1E2942;
-    --border-color: #2D3E6B;
-    --border-color-focus: #FBBF24; /* Bright gold for clear focus */
+    --bg-dark: #F3F4F6; /* Bright light-gray background */
+    --bg-card: #FFFFFF; /* Crisp solid white cards */
+    --bg-card-hover: #F9FAFB;
+    --border-color: #D1D5DB; /* Clear gray border for layout lines */
+    --border-color-focus: #1D4ED8; /* Royal blue for focus */
     
-    --primary: #2563EB; /* Deep high-contrast blue */
-    --primary-glow: rgba(37, 99, 235, 0.4);
+    --primary: #1D4ED8; /* High-contrast royal blue */
+    --primary-glow: rgba(29, 78, 216, 0.15);
     --secondary: #4F46E5;
-    --success: #10B981;
-    --success-glow: rgba(16, 185, 129, 0.3);
-    --danger: #EF4444;
-    --warning: #FBBF24; /* High visibility yellow */
+    --success: #059669; /* Cheerful dark emerald green */
+    --success-glow: rgba(5, 150, 105, 0.15);
+    --danger: #DC2626;
+    --warning: #D97706; /* Amber-orange for contrast on white background */
     
-    --text-main: #FFFFFF; /* Pure white for high contrast */
-    --text-muted: #E2E8F0; /* Light gray for high contrast */
-    --text-dark: #0F172A;
+    --text-main: #111827; /* Deep black-gray for maximum readability */
+    --text-muted: #4B5563; /* Medium gray */
+    --text-dark: #000000;
     
     --font-heading: 'Outfit', 'Noto Sans TC', sans-serif;
     --font-body: 'Inter', 'Noto Sans TC', sans-serif;
@@ -35,14 +35,14 @@
 }
 
 body {
-    background-color: #000000; /* Deep black */
+    background-color: #E5E7EB; /* Light grey base */
     color: var(--text-main);
     font-family: var(--font-body);
     font-size: 16px;
     overflow: hidden;
 }
 
-/* DESKTOP BACKGROUND & PHONE CONTAINER */
+/* DESKTOP BACKGROUND & PHONE CONTAINER (CHEERFUL BRIGHT GRADIENT) */
 .desktop-bg {
     position: relative;
     width: 100vw;
@@ -50,7 +50,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: radial-gradient(circle at 10% 20%, #0F172A 0%, #000000 100%);
+    background: linear-gradient(135deg, #E0F2FE 0%, #EEF2F6 100%); /* Light pastel sky blue */
     overflow: hidden;
 }
 
@@ -58,7 +58,7 @@ body {
     position: absolute;
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, rgba(0,0,0,0) 70%);
+    background: radial-gradient(circle, rgba(14, 165, 233, 0.1) 0%, rgba(0,0,0,0) 70%);
     top: -100px;
     left: -100px;
     filter: blur(50px);
@@ -68,7 +68,7 @@ body {
     position: absolute;
     width: 650px;
     height: 650px;
-    background: radial-gradient(circle, rgba(251, 191, 36, 0.05) 0%, rgba(0,0,0,0) 70%);
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, rgba(0,0,0,0) 70%);
     bottom: -150px;
     right: -150px;
     filter: blur(60px);
@@ -77,13 +77,13 @@ body {
 /* Phone Frame Mockup (Only visible on desktop) */
 .phone-frame {
     position: relative;
-    width: 440px; /* Widened slightly for larger layout */
+    width: 440px;
     height: 880px;
-    background: #090E1A;
-    border: 14px solid #334155; /* Thicker phone frame */
+    background: #FFFFFF;
+    border: 14px solid #1E293B; /* Dark frame contrasts the bright screen beautifully */
     border-radius: 54px;
-    box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.9),
-                inset 0 0 10px rgba(255, 255, 255, 0.15);
+    box-shadow: 0 25px 60px -10px rgba(15, 23, 42, 0.3),
+                inset 0 0 10px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -97,7 +97,7 @@ body {
     transform: translateX(-50%);
     width: 150px;
     height: 30px;
-    background: #000;
+    background: #1E293B;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     z-index: 1000;
@@ -111,7 +111,7 @@ body {
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background: #1E293B;
+    background: #0F172A;
 }
 
 .notch-speaker {
@@ -124,7 +124,7 @@ body {
 /* External Phone Buttons */
 .phone-side-buttons div {
     position: absolute;
-    background: #334155;
+    background: #1E293B;
     border-radius: 3px;
 }
 
@@ -140,8 +140,8 @@ body {
     display: flex;
     flex-direction: column;
     position: relative;
-    padding-top: 40px; /* safe area for status bar */
-    padding-bottom: 84px; /* increased safe area for larger bottom nav */
+    padding-top: 40px;
+    padding-bottom: 84px;
 }
 
 /* Status Bar */
@@ -155,9 +155,9 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 0 28px;
-    font-size: 15px; /* Larger font */
-    font-weight: 700; /* Bolder font */
-    color: #FFF;
+    font-size: 15px;
+    font-weight: 800;
+    color: #1E293B; /* Dark status text */
     z-index: 999;
 }
 
@@ -192,7 +192,6 @@ body {
     z-index: 20;
 }
 
-/* Special Case: Login screen occupies whole app area, no bottom nav */
 #screen-login {
     top: 40px;
     bottom: 0;
@@ -204,24 +203,24 @@ body {
 
 /* SCREEN HEADERS */
 .screen-header {
-    height: 64px; /* Taller header */
+    height: 64px;
     min-height: 64px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
-    border-bottom: 2px solid var(--border-color); /* Thicker line */
-    background: #090E1F;
+    border-bottom: 2px solid var(--border-color);
+    background: #FFFFFF; /* Clean white header */
 }
 
 .screen-header h2 {
     font-family: var(--font-heading);
-    font-size: 22px; /* Increased from 19px */
+    font-size: 22px;
     font-weight: 700;
     letter-spacing: 0.5px;
     text-align: center;
     flex-grow: 1;
-    color: #FFF;
+    color: var(--text-main);
 }
 
 /* Scrollable Screen Content */
@@ -243,8 +242,8 @@ body {
 .btn {
     font-family: var(--font-heading);
     font-weight: 700;
-    font-size: 18px; /* Larger text */
-    padding: 16px 20px; /* Bigger padding for larger touch target */
+    font-size: 18px;
+    padding: 16px 20px;
     border-radius: 14px;
     border: none;
     cursor: pointer;
@@ -262,31 +261,31 @@ body {
 .btn-primary {
     background: var(--primary);
     color: #FFF;
-    box-shadow: 0 4px 15px var(--primary-glow);
+    box-shadow: 0 4px 12px rgba(29, 78, 216, 0.2);
 }
 
 .btn-primary:hover {
-    background: #1D4ED8;
+    background: #1E40AF;
 }
 
 .btn-secondary {
-    background: #1E2942;
+    background: #FFFFFF;
     color: var(--text-main);
-    border: 2px solid var(--border-color); /* Thicker border */
+    border: 2px solid var(--border-color);
 }
 
 .btn-secondary:hover {
-    background: #2D3A57;
+    background: #F3F4F6;
 }
 
 .btn-outline-danger {
     background: transparent;
-    color: #F87171; /* High visibility red */
-    border: 2.5px solid #EF4444; /* Thicker border */
+    color: #DC2626;
+    border: 2.5px solid #DC2626;
 }
 
 .btn-outline-danger:hover {
-    background: rgba(239, 68, 68, 0.15);
+    background: rgba(220, 38, 38, 0.08);
 }
 
 .btn-block {
@@ -299,10 +298,10 @@ body {
 }
 
 .back-btn, .notification-btn, .flash-btn, .clear-cart-btn {
-    background: #1E2942;
+    background: #FFFFFF;
     border: 2px solid var(--border-color);
     color: var(--text-main);
-    width: 48px; /* Enlarged touch targets */
+    width: 48px;
     height: 48px;
     border-radius: 14px;
     display: flex;
@@ -314,7 +313,7 @@ body {
 }
 
 .back-btn:hover, .notification-btn:hover {
-    background: #2D3A57;
+    background: #F3F4F6;
 }
 
 .flash-btn {
@@ -326,16 +325,16 @@ body {
 }
 
 .clear-cart-btn {
-    color: #EF4444;
-    border-color: #EF4444;
+    color: var(--danger);
+    border-color: var(--danger);
 }
 
 /* SECTION TITLES */
 .section-title {
     font-family: var(--font-heading);
-    font-size: 17px; /* Increased from 15px */
+    font-size: 17px;
     font-weight: 700;
-    color: var(--warning); /* Changed to high contrast yellow */
+    color: var(--primary); /* Cheerful primary blue for section titles */
     text-transform: uppercase;
     letter-spacing: 0.8px;
     margin-top: 24px;
@@ -357,17 +356,17 @@ body {
 }
 
 .brand-logo i {
-    font-size: 40px; /* Larger logo */
-    color: var(--warning);
-    filter: drop-shadow(0 0 10px rgba(251, 191, 36, 0.3));
+    font-size: 40px;
+    color: var(--primary);
+    filter: drop-shadow(0 0 4px rgba(29, 78, 216, 0.2));
 }
 
 .brand-logo span {
     font-family: 'Outfit', sans-serif;
-    font-size: 32px; /* Larger logo text */
+    font-size: 32px;
     font-weight: 800;
     letter-spacing: 2px;
-    color: #FFF;
+    color: var(--text-main);
 }
 
 .login-header h2 {
@@ -387,30 +386,30 @@ body {
 }
 
 .input-group label {
-    font-size: 16px; /* Increased from 13px */
+    font-size: 16px;
     color: var(--text-main);
     margin-bottom: 10px;
     font-weight: 700;
 }
 
 .input-group.focused label {
-    color: var(--warning);
+    color: var(--primary);
 }
 
 .input-wrapper {
     position: relative;
     display: flex;
     align-items: center;
-    background: #131B2E;
-    border: 2.5px solid var(--border-color); /* Thicker border */
+    background: #FFFFFF;
+    border: 2.5px solid var(--border-color);
     border-radius: 14px;
     padding: 0 18px;
-    height: 56px; /* Taller input */
+    height: 56px;
 }
 
 .input-group.focused .input-wrapper {
     border-color: var(--border-color-focus);
-    background: #18223B;
+    background: #FFFFFF;
 }
 
 .input-wrapper i {
@@ -420,14 +419,14 @@ body {
 }
 
 .input-group.focused .input-wrapper i {
-    color: var(--warning);
+    color: var(--primary);
 }
 
 .input-wrapper input {
     background: transparent;
     border: none;
-    color: #FFF;
-    font-size: 18px; /* Larger input font */
+    color: var(--text-main);
+    font-size: 18px;
     font-weight: 700;
     width: 100%;
     outline: none;
@@ -439,9 +438,10 @@ body {
     margin-left: auto;
     margin-right: 0 !important;
     font-size: 22px !important;
+    color: var(--text-muted);
 }
 
-/* Keypad Grid (Huge Senior Buttons) */
+/* Keypad Grid (Huge Touch Target Cheerful Buttons) */
 .custom-keypad {
     margin-top: auto;
     margin-bottom: 30px;
@@ -452,31 +452,31 @@ body {
 }
 
 .key-btn {
-    height: 64px; /* Enlarged key button */
+    height: 64px;
     border-radius: 16px;
     border: 2px solid var(--border-color);
-    background: #1E2942;
+    background: #FFFFFF;
     color: var(--text-main);
     font-family: var(--font-heading);
-    font-size: 24px; /* Larger numbers */
+    font-size: 24px;
     font-weight: 700;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .key-btn:active {
-    background: #2D3A57;
-    border-color: var(--warning);
+    background: #F3F4F6;
+    border-color: var(--primary);
 }
 
 .key-sub {
-    font-size: 11px; /* Larger subtext */
+    font-size: 11px;
     color: var(--text-muted);
     font-weight: 700;
-    margin-top: 0px;
 }
 
 /* 2. HOME SCREEN STYLES */
@@ -490,18 +490,19 @@ body {
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    background: rgba(59, 130, 246, 0.2);
-    border: 2px solid rgba(59, 130, 246, 0.5);
+    background: rgba(29, 78, 216, 0.1);
+    border: 2px solid rgba(29, 78, 216, 0.3);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #60A5FA;
+    color: var(--primary);
     font-size: 20px;
 }
 
 .user-greeting h3 {
     font-size: 18px;
     font-weight: 700;
+    color: var(--text-main);
 }
 
 .user-greeting p {
@@ -527,7 +528,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid var(--bg-dark);
+    border: 2px solid #FFFFFF;
 }
 
 /* Stats Section */
@@ -542,6 +543,7 @@ body {
     border: 2px solid var(--border-color);
     border-radius: 18px;
     padding: 18px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 }
 
 .stat-label {
@@ -553,9 +555,9 @@ body {
 
 .stat-val {
     font-family: var(--font-heading);
-    font-size: 22px; /* Larger stats */
+    font-size: 22px;
     font-weight: 800;
-    color: #FFF;
+    color: var(--text-main);
     margin-bottom: 8px;
 }
 
@@ -566,7 +568,7 @@ body {
 }
 
 .stat-change.positive {
-    color: #34D399; /* Higher contrast emerald */
+    color: #059669;
 }
 
 /* Quick Actions Grid */
@@ -582,11 +584,12 @@ body {
     border-radius: 18px;
     padding: 20px 8px;
     gap: 14px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 }
 
 .action-card:hover {
     background: var(--bg-card-hover);
-    border-color: var(--warning);
+    border-color: var(--primary);
 }
 
 .action-icon {
@@ -596,37 +599,40 @@ body {
     font-size: 22px;
 }
 
-.action-icon.bg-blue { background: rgba(59, 130, 246, 0.2); color: #60A5FA; border: 2px solid rgba(59, 130, 246, 0.3); }
-.action-icon.bg-purple { background: rgba(99, 102, 241, 0.2); color: #818CF8; border: 2px solid rgba(99, 102, 241, 0.3); }
-.action-icon.bg-emerald { background: rgba(16, 185, 129, 0.2); color: #34D399; border: 2px solid rgba(16, 185, 129, 0.3); }
+.action-icon.bg-blue { background: rgba(59, 130, 246, 0.1); color: #2563EB; border: 2px solid rgba(59, 130, 246, 0.2); }
+.action-icon.bg-purple { background: rgba(99, 102, 241, 0.1); color: #4F46E5; border: 2px solid rgba(99, 102, 241, 0.2); }
+.action-icon.bg-emerald { background: rgba(16, 185, 129, 0.1); color: #059669; border: 2px solid rgba(16, 185, 129, 0.2); }
 
 .action-card span {
-    font-size: 15px; /* Larger labels */
+    font-size: 15px;
     font-weight: 700;
+    color: var(--text-main);
 }
 
 /* Warnings/Alerts */
 .alert-item {
-    background: #2A1C08; /* Darker solid background for better contrast */
-    border: 2.5px solid var(--warning);
+    background: #FFFBEB; /* Cheerful bright amber alert card */
+    border: 2.5px solid #FBBF24;
     border-radius: 18px;
     padding: 16px;
+    box-shadow: 0 2px 4px rgba(245, 158, 11, 0.05);
 }
 
 .alert-icon {
     font-size: 22px;
-    color: var(--warning);
+    color: #D97706;
 }
 
 .alert-info h5 {
     font-size: 16px;
     font-weight: 700;
+    color: #78350F;
 }
 
 .alert-info p {
     font-size: 14px;
-    color: #F1F5F9;
-    font-weight: 500;
+    color: #92400E;
+    font-weight: 600;
 }
 
 /* 3 & 6. SCANNING SCREENS */
@@ -644,7 +650,7 @@ body {
 .scan-box .corner {
     width: 25px;
     height: 25px;
-    border-width: 5px; /* Thicker focus lines */
+    border-width: 5px;
 }
 
 .scan-laser {
@@ -674,9 +680,11 @@ body {
 }
 
 .summary-card {
+    background: var(--bg-card);
     border: 2px solid var(--border-color);
     border-radius: 16px;
     padding: 14px 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 }
 
 .summary-label {
@@ -689,7 +697,7 @@ body {
 }
 
 .summary-value.highlight {
-    color: #60A5FA;
+    color: var(--primary);
 }
 
 .summary-value .unit {
@@ -699,10 +707,12 @@ body {
 
 /* Product Info Card */
 .product-info-card {
+    background: var(--bg-card);
     border: 2px solid var(--border-color);
     border-radius: 18px;
     padding: 18px;
     gap: 18px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 }
 
 .product-image-container {
@@ -710,6 +720,7 @@ body {
     height: 90px;
     border-radius: 14px;
     border: 2px solid var(--border-color);
+    background: #F9FAFB;
 }
 
 .product-details h3 {
@@ -722,29 +733,33 @@ body {
     font-weight: 700;
 }
 
-/* Size Selection (Enlarged Buttons) */
+/* Size Selection */
 .size-selection-grid {
     gap: 12px;
 }
 
 .size-btn {
-    height: 64px; /* Taller size buttons */
+    height: 64px;
     border-radius: 16px;
     border: 2px solid var(--border-color);
+    background: #FFFFFF;
+    color: var(--text-main);
     font-size: 18px;
     font-weight: 700;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
 }
 
 .size-btn.available.active {
     background: var(--primary);
-    border-color: var(--warning); /* Highlight active size with gold border */
-    box-shadow: 0 4px 12px var(--primary-glow);
+    border-color: var(--primary);
+    color: #FFFFFF;
+    box-shadow: 0 4px 12px rgba(29, 78, 216, 0.2);
 }
 
 .size-btn.out-of-stock {
-    background: #0E1322;
-    border-color: #1E293B;
-    color: #475569;
+    background: #E5E7EB;
+    border-color: #D1D5DB;
+    color: #9CA3AF;
 }
 
 .btn-sub-badge {
@@ -760,22 +775,27 @@ body {
 }
 
 .filter-select-wrapper select {
-    height: 48px; /* Taller dropdown */
+    height: 48px;
+    background: #FFFFFF;
     border: 2px solid var(--border-color);
     font-size: 15px;
     font-weight: 700;
+    color: var(--text-main);
 }
 
 .filter-icon-btn {
     width: 48px;
     height: 48px;
+    background: #FFFFFF;
     border: 2px solid var(--border-color);
 }
 
 .store-card {
+    background: var(--bg-card);
     border: 2px solid var(--border-color);
     border-radius: 18px;
     padding: 18px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 }
 
 .store-info h4 {
@@ -799,21 +819,22 @@ body {
     font-weight: 800;
 }
 
-.stock-count-bubble.green { background: #064E3B; color: #34D399; }
-.stock-count-bubble.orange { background: #78350F; color: #FBBF24; }
-.stock-count-bubble.red { background: #7F1D1D; color: #FCA5A5; }
+.stock-count-bubble.green { background: #D1FAE5; color: #065F46; }
+.stock-count-bubble.orange { background: #FEF3C7; color: #92400E; }
+.stock-count-bubble.red { background: #FEE2E2; color: #991B1B; }
 
 /* Float Cart Preview on Scan screen */
 .scan-cart-preview {
-    height: 74px; /* Taller float bar */
-    background: #090E1F;
+    height: 74px;
+    background: #FFFFFF;
     border-top: 2px solid var(--border-color);
     padding: 0 20px;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.05);
 }
 
 .cart-preview-info i {
     font-size: 22px;
-    color: var(--warning);
+    color: var(--primary);
 }
 
 .cart-preview-count {
@@ -832,16 +853,19 @@ body {
 }
 
 .cart-item {
+    background: var(--bg-card);
     border: 2px solid var(--border-color);
     border-radius: 18px;
     padding: 16px;
     gap: 14px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 }
 
 .cart-item-img {
     width: 60px;
     height: 60px;
     border-radius: 10px;
+    border: 1px solid var(--border-color);
 }
 
 .cart-item-title {
@@ -858,10 +882,12 @@ body {
     gap: 12px;
     padding: 6px 10px;
     border: 1.5px solid var(--border-color);
+    background: #F3F4F6;
 }
 
 .qty-btn {
     font-size: 16px;
+    color: var(--text-main);
 }
 
 .qty-val {
@@ -872,36 +898,42 @@ body {
 .cart-item-price {
     font-size: 16px;
     font-weight: 800;
-    color: var(--warning);
+    color: var(--primary);
 }
 
 /* Pricing Card */
 .pricing-summary-card {
+    background: #FFFFFF;
     border: 2px solid var(--border-color);
     border-radius: 18px;
     padding: 18px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 }
 
 .pricing-row {
     font-size: 15px;
-    font-weight: 500;
+    font-weight: 600;
+    color: var(--text-muted);
 }
 
 .pricing-row.total {
     font-size: 17px;
     font-weight: 700;
+    color: var(--text-main);
 }
 
 .pricing-row.total .highlight {
     font-size: 22px;
-    color: var(--warning);
+    color: var(--primary);
 }
 
 /* Customer details */
 .customer-info-form {
+    background: var(--bg-card);
     border: 2px solid var(--border-color);
     border-radius: 18px;
     padding: 18px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 }
 
 .form-row label {
@@ -914,6 +946,8 @@ body {
     font-size: 16px;
     font-weight: 700;
     border: 2px solid var(--border-color);
+    background: #FFFFFF;
+    color: var(--text-main);
 }
 
 /* 8. ORDER HISTORY SCREEN */
@@ -921,25 +955,30 @@ body {
     border: 2px solid var(--border-color);
     border-radius: 14px;
     height: 48px;
+    background: #FFFFFF;
 }
 
 .search-bar i {
     font-size: 18px;
+    color: var(--text-muted);
 }
 
 .search-bar input {
     font-size: 15px;
     font-weight: 700;
+    color: var(--text-main);
 }
 
 .order-card {
+    background: var(--bg-card);
     border: 2px solid var(--border-color);
     border-radius: 18px;
     padding: 18px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 }
 
 .order-card:hover {
-    border-color: var(--warning);
+    border-color: var(--primary);
 }
 
 .order-id {
@@ -953,7 +992,7 @@ body {
     padding: 4px 10px;
 }
 
-.order-status.completed { background: #064E3B; color: #34D399; }
+.order-status.completed { background: #D1FAE5; color: #065F46; }
 
 .order-details p {
     font-size: 14px;
@@ -963,10 +1002,33 @@ body {
 .order-price {
     font-size: 18px;
     font-weight: 800;
-    color: var(--warning);
+    color: var(--primary);
 }
 
 /* 9. USER INFO SCREEN */
+.user-profile-card {
+    border-bottom: 2px solid var(--border-color);
+    background: #FFFFFF;
+    border-radius: 18px 18px 0 0;
+    padding: 24px 0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.user-avatar-large {
+    position: relative;
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: rgba(29, 78, 216, 0.1);
+    border: 2px solid rgba(29, 78, 216, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    font-size: 32px;
+    margin-bottom: 14px;
+}
+
 .user-profile-card h2 {
     font-size: 22px;
     font-weight: 700;
@@ -977,21 +1039,33 @@ body {
     font-weight: 700;
 }
 
+.info-list {
+    margin-bottom: 20px;
+}
+
 .info-item {
+    background: #FFFFFF;
     border: 2px solid var(--border-color);
     border-radius: 14px;
     padding: 14px 18px;
     font-size: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
 }
 
 .info-label {
     font-weight: 700;
 }
 
+.menu-list {
+    gap: 10px;
+}
+
 .menu-item {
+    background: var(--bg-card);
     border: 2px solid var(--border-color);
     border-radius: 16px;
     padding: 16px 18px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 }
 
 .menu-item-left {
@@ -1001,60 +1075,70 @@ body {
 
 .menu-item-left i {
     font-size: 18px;
-    color: var(--warning);
+    color: var(--primary);
 }
 
-/* BOTTOM NAVIGATION BAR (HUGE TOUCH TARGETS) */
+/* BOTTOM NAVIGATION BAR (Crisp White and Bright Blue) */
 .bottom-nav {
-    height: 84px; /* Raised nav height */
+    height: 84px;
+    background: #FFFFFF;
     border-top: 2px solid var(--border-color);
     padding-bottom: 16px;
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .nav-item {
     width: 70px;
+    color: var(--text-muted);
 }
 
 .nav-item i {
-    font-size: 22px; /* Enlarged icons */
+    font-size: 22px;
 }
 
 .nav-item span {
-    font-size: 12px; /* Larger font */
+    font-size: 12px;
     font-weight: 700;
 }
 
 .nav-item.active {
-    color: var(--warning); /* Changed active state to gold for high contrast */
+    color: var(--primary);
 }
 
 /* SUCCESS MODAL POPUP */
 .success-card {
-    border: 2px solid var(--warning);
+    background: #FFFFFF;
+    border: 2.5px solid var(--primary);
     max-width: 350px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
 }
 
 .success-icon-circle {
     width: 72px;
     height: 72px;
+    background: #D1FAE5;
+    border: 2px solid #34D399;
+    color: #065F46;
     font-size: 32px;
 }
 
 .success-card h2 {
     font-size: 22px;
     font-weight: 700;
+    color: var(--text-main);
 }
 
 .success-order-id {
     font-size: 15px;
-    background: rgba(251, 191, 36, 0.15);
-    color: var(--warning);
+    background: rgba(29, 78, 216, 0.1);
+    color: var(--primary);
     padding: 4px 12px;
 }
 
 .success-message {
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 600;
+    color: var(--text-muted);
 }
 
 /* RESPONSIVE DESIGN (REAL MOBILE DEVICE ADAPTATION) */
