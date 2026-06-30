@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
         bottomNav.style.display = 'none';
 
         // Programmatically hide simulated status bar and notch on actual mobile devices (safeguard)
-        const isMobile = window.innerWidth <= 500 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        const isMobile = window.innerWidth <= 900 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
         if (isMobile) {
             const notch = document.querySelector('.phone-camera-notch');
             const statusBar = document.querySelector('.status-bar');

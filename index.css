@@ -1200,7 +1200,7 @@ body {
 }
 
 /* RESPONSIVE DESIGN (REAL MOBILE DEVICE ADAPTATION) */
-@media (max-width: 500px) {
+@media (max-width: 900px) {
     .phone-frame {
         width: 100vw;
         height: 100vh;
