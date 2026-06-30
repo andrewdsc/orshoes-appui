@@ -1210,15 +1210,20 @@ body {
     }
     
     .phone-camera-notch {
-        display: none;
+        display: none !important;
+    }
+    
+    .status-bar {
+        display: none !important; /* Hide simulated status bar on actual mobile devices */
     }
     
     .app-container {
-        padding-top: 10px;
+        padding-top: env(safe-area-inset-top, 20px);
+        padding-bottom: env(safe-area-inset-bottom, 84px);
     }
     
     .screen {
-        top: 24px;
+        top: env(safe-area-inset-top, 20px);
         bottom: 84px;
     }
 }
