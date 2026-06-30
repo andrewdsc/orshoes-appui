@@ -442,12 +442,18 @@ body {
 }
 
 #btn-login-submit {
-    height: 60px;
-    font-size: 20px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    margin-top: 15px;
-    box-shadow: 0 6px 16px rgba(29, 78, 216, 0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    max-width: 280px;
+    height: 64px; /* enlarged height */
+    font-size: 22px; /* enlarged font size */
+    font-weight: 800; /* bolder text */
+    letter-spacing: 1.5px;
+    margin: 25px auto 0 auto; /* centered horizontally */
+    border-radius: 32px; /* pill shape */
+    box-shadow: 0 8px 20px rgba(29, 78, 216, 0.3);
 }
 
 /* Keypad Grid (Mobile Phone Dialer Style - Slide Up Menu) */
