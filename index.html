@@ -121,10 +121,6 @@
                         <!-- Quick Actions -->
                         <h4 class="section-title">快捷操作</h4>
                         <div class="action-grid">
-                            <button class="action-card" id="home-btn-scan-inv">
-                                <div class="action-icon bg-blue"><i class="fa-solid fa-qrcode"></i></div>
-                                <span>庫存掃描</span>
-                            </button>
                             <button class="action-card" id="home-btn-create-order">
                                 <div class="action-icon bg-purple"><i class="fa-solid fa-cart-plus"></i></div>
                                 <span>訂單開立</span>
@@ -133,15 +129,19 @@
                                 <div class="action-icon bg-emerald"><i class="fa-solid fa-file-invoice"></i></div>
                                 <span>訂單查詢</span>
                             </button>
+                            <button class="action-card" id="home-btn-scan-inv">
+                                <div class="action-icon bg-blue"><i class="fa-solid fa-magnifying-glass"></i></div>
+                                <span>庫存查詢</span>
+                            </button>
                         </div>
                     </div>
                 </div>
-
+ 
                 <!-- 3. Inventory Scan Screen -->
                 <div id="screen-inventory-scan" class="screen">
                     <div class="screen-header">
                         <button class="back-btn" id="btn-scan-inv-back"><i class="fa-solid fa-chevron-left"></i></button>
-                        <h2>庫存掃描</h2>
+                        <h2>庫存查詢</h2>
                         <button class="flash-btn" id="btn-flashlight-inv"><i class="fa-solid fa-bolt"></i> 閃光燈</button>
                     </div>
                     <div class="scan-viewfinder">
