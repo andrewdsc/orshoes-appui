@@ -95,7 +95,10 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Order History Elements
     const orderHistoryContainer = document.getElementById('order-history-container');
-    const orderSearchInput = document.getElementById('order-search-input');
+    const filterDateInput = document.getElementById('filter-date');
+    const filterNameInput = document.getElementById('filter-name');
+    const filterCodeInput = document.getElementById('filter-code');
+    const btnClearFilters = document.getElementById('btn-clear-filters');
     
     // User Settings Elements
     const btnLogout = document.getElementById('btn-logout');
@@ -563,24 +566,39 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ORDER HISTORY SCREEN
     function setupOrderHistory() {
-        orderSearchInput.addEventListener('input', () => {
+        filterDateInput.addEventListener('change', renderOrderHistory);
+        filterNameInput.addEventListener('input', renderOrderHistory);
+        filterCodeInput.addEventListener('input', renderOrderHistory);
+        
+        btnClearFilters.addEventListener('click', () => {
+            filterDateInput.value = '';
+            filterNameInput.value = '';
+            filterCodeInput.value = '';
             renderOrderHistory();
         });
     }
-
+ 
     function renderOrderHistory() {
-        const query = orderSearchInput.value.trim().toLowerCase();
+        const dateVal = filterDateInput.value; // YYYY-MM-DD
+        const nameQuery = filterNameInput.value.trim().toLowerCase();
+        const codeQuery = filterCodeInput.value.trim().toLowerCase();
+        
         orderHistoryContainer.innerHTML = '';
-
+ 
         let filtered = state.orders;
-        if (query !== '') {
-            filtered = state.orders.filter(ord => 
-                ord.id.toLowerCase().includes(query) || 
-                ord.phone.includes(query) ||
-                ord.items.some(item => 
-                    item.title.toLowerCase().includes(query) ||
-                    (item.code && item.code.toLowerCase().includes(query))
-                )
+        
+        // Multi-criteria filter: AND condition
+        if (dateVal !== '') {
+            filtered = filtered.filter(ord => ord.time.startsWith(dateVal));
+        }
+        if (nameQuery !== '') {
+            filtered = filtered.filter(ord => 
+                ord.items.some(item => item.title.toLowerCase().includes(nameQuery))
+            );
+        }
+        if (codeQuery !== '') {
+            filtered = filtered.filter(ord => 
+                ord.items.some(item => item.code && item.code.toLowerCase().includes(codeQuery))
             );
         }
 

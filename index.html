@@ -337,10 +337,22 @@
                         <div style="width: 48px;"></div>
                     </div>
                     <div class="screen-content scrollable">
-                        <!-- Search input -->
-                        <div class="search-bar">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                            <input type="text" id="order-search-input" placeholder="搜尋訂單編號 / 會員電話 / 商品品號">
+                        <!-- Multi-criteria Search Filter Group -->
+                        <div class="history-filter-group" style="background: #FFFFFF; border: 2px solid var(--border-color); border-radius: 18px; padding: 16px; margin-bottom: 20px; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);">
+                            <div class="form-row" style="display: flex; flex-direction: column; gap: 6px;">
+                                <label for="filter-date" style="font-size: 15px; font-weight: 700; color: var(--text-main);">訂單日期</label>
+                                <input type="date" id="filter-date" style="height: 48px; font-size: 16px; font-weight: 700; border: 2px solid var(--border-color); border-radius: 12px; padding: 0 12px; background: #FFFFFF; color: var(--text-main); outline: none;">
+                            </div>
+                            <div class="form-row" style="display: flex; flex-direction: column; gap: 6px;">
+                                <label for="filter-name" style="font-size: 15px; font-weight: 700; color: var(--text-main);">商品名稱</label>
+                                <input type="text" id="filter-name" placeholder="輸入商品名稱" style="height: 48px; font-size: 16px; font-weight: 700; border: 2px solid var(--border-color); border-radius: 12px; padding: 0 12px; background: #FFFFFF; color: var(--text-main); outline: none;">
+                            </div>
+                            <div class="form-row" style="display: flex; flex-direction: column; gap: 6px;">
+                                <label for="filter-code" style="font-size: 15px; font-weight: 700; color: var(--text-main);">商品品號</label>
+                                <input type="text" id="filter-code" placeholder="輸入商品品號 (例：#SH-2024001)" style="height: 48px; font-size: 16px; font-weight: 700; border: 2px solid var(--border-color); border-radius: 12px; padding: 0 12px; background: #FFFFFF; color: var(--text-main); outline: none;">
+                            </div>
+                            <!-- Clear filter button -->
+                            <button class="btn btn-secondary btn-block" id="btn-clear-filters" style="margin-top: 6px;"><i class="fa-solid fa-rotate-left"></i> 重設篩選條件</button>
                         </div>
                         
                         <!-- Order list -->
