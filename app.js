@@ -129,6 +129,27 @@ document.addEventListener('DOMContentLoaded', () => {
         // Hide bottom nav initially for Login Screen
         bottomNav.style.display = 'none';
 
+        // Programmatically hide simulated status bar and notch on actual mobile devices (safeguard)
+        const isMobile = window.innerWidth <= 500 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        if (isMobile) {
+            const notch = document.querySelector('.phone-camera-notch');
+            const statusBar = document.querySelector('.status-bar');
+            if (notch) notch.style.setProperty('display', 'none', 'important');
+            if (statusBar) statusBar.style.setProperty('display', 'none', 'important');
+            
+            // Adjust top padding of app container for native status bar / safe area
+            const appContainer = document.getElementById('app');
+            if (appContainer) {
+                appContainer.style.setProperty('padding-top', 'env(safe-area-inset-top, 20px)', 'important');
+            }
+            
+            // Adjust screens to align below native status bar
+            const screens = document.querySelectorAll('.screen');
+            screens.forEach(screen => {
+                screen.style.setProperty('top', 'env(safe-area-inset-top, 20px)', 'important');
+            });
+        }
+
         // Register PWA Service Worker for offline and desktop app support
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
