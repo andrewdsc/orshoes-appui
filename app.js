@@ -61,6 +61,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnHistoryBack = document.getElementById('btn-history-back');
     const btnUserInfoBack = document.getElementById('btn-user-info-back');
     const homeAvatar = document.getElementById('home-avatar');
+
+    // New Search List Navigation Back & Triggers
+    const btnInvQueryBack = document.getElementById('btn-inv-query-back');
+    const btnOrderInputBack = document.getElementById('btn-order-input-back');
+    const btnInvScanTrigger = document.getElementById('btn-inv-scan-trigger');
+    const btnOrderScanTrigger = document.getElementById('btn-order-scan-trigger');
+    const btnListCheckoutNext = document.getElementById('btn-list-checkout-next');
     
     // Home Dashboard Buttons
     const homeBtnScanInv = document.getElementById('home-btn-scan-inv');
@@ -208,19 +215,28 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // Home Actions Shortcuts
-        homeBtnScanInv.addEventListener('click', () => navigateTo('screen-inventory-scan'));
-        homeBtnCreateOrder.addEventListener('click', () => navigateTo('screen-order-scan'));
+        homeBtnScanInv.addEventListener('click', () => navigateTo('screen-inventory-query'));
+        homeBtnCreateOrder.addEventListener('click', () => navigateTo('screen-order-input'));
         homeBtnQueryOrder.addEventListener('click', () => navigateTo('screen-order-history'));
         homeAvatar.addEventListener('click', () => navigateTo('screen-user-info'));
  
         // Back Buttons
-        btnScanInvBack.addEventListener('click', () => navigateTo('screen-home'));
-        btnInvResultBack.addEventListener('click', () => navigateTo('screen-inventory-scan'));
+        btnInvQueryBack.addEventListener('click', () => navigateTo('screen-home'));
+        btnOrderInputBack.addEventListener('click', () => navigateTo('screen-home'));
+        btnScanInvBack.addEventListener('click', () => navigateTo('screen-inventory-query'));
+        btnInvResultBack.addEventListener('click', () => navigateTo('screen-inventory-query'));
         btnOtherStoreBack.addEventListener('click', () => navigateTo('screen-inventory-result'));
-        btnOrderScanBack.addEventListener('click', () => navigateTo('screen-home'));
-        btnCheckoutBack.addEventListener('click', () => navigateTo('screen-order-scan'));
+        btnOrderScanBack.addEventListener('click', () => navigateTo('screen-order-input'));
+        btnCheckoutBack.addEventListener('click', () => navigateTo('screen-order-input'));
         btnHistoryBack.addEventListener('click', () => navigateTo('screen-home'));
         btnUserInfoBack.addEventListener('click', () => navigateTo('screen-home'));
+
+        // Toggle triggers inside search lists to slide into camera scanner
+        btnInvScanTrigger.addEventListener('click', () => navigateTo('screen-inventory-scan'));
+        btnOrderScanTrigger.addEventListener('click', () => navigateTo('screen-order-scan'));
+
+        // Checkout next step button in list
+        btnListCheckoutNext.addEventListener('click', () => navigateTo('screen-checkout'));
     }
 
     // KEYPAD INPUT SYSTEM
@@ -367,6 +383,42 @@ document.addEventListener('DOMContentLoaded', () => {
         // Flashlight simulation
         btnFlashlightInv.addEventListener('click', () => toggleFlashlight(btnFlashlightInv));
         btnFlashlightOrder.addEventListener('click', () => toggleFlashlight(btnFlashlightOrder));
+
+        // Inventory Query List Filter Logic
+        const invSearchField = document.getElementById('inv-search-field');
+        const btnInvSearchSubmit = document.getElementById('btn-inv-search-submit');
+        const filterInvQueryList = () => {
+            const query = invSearchField.value.trim().toLowerCase();
+            const items = document.querySelectorAll('#inv-query-list-container .product-query-item');
+            items.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                if (text.includes(query)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        };
+        if (invSearchField) {
+            invSearchField.addEventListener('input', filterInvQueryList);
+        }
+        if (btnInvSearchSubmit) {
+            btnInvSearchSubmit.addEventListener('click', filterInvQueryList);
+        }
+
+        // Inventory Query List Clicks
+        const queryItems = document.querySelectorAll('#inv-query-list-container .product-query-item');
+        queryItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const dataId = item.getAttribute('data-id');
+                if (dataId === 'SH-2024001') {
+                    // Navigate to details screen
+                    navigateTo('screen-inventory-result');
+                } else {
+                    alert('該商品目前無可用庫存（可用總庫存量為 0 雙）');
+                }
+            });
+        });
     }
 
     function toggleFlashlight(buttonElement) {
@@ -467,13 +519,27 @@ document.addEventListener('DOMContentLoaded', () => {
         const countText = document.querySelector('.cart-preview-count');
         const totalText = document.querySelector('.cart-preview-total');
         
-        countText.textContent = `已加入 ${totalItems} 項商品`;
-        totalText.textContent = `估計總額: NT$ ${subtotal.toLocaleString()}`;
+        if (countText) countText.textContent = `已加入 ${totalItems} 項商品`;
+        if (totalText) totalText.textContent = `估計總額: NT$ ${subtotal.toLocaleString()}`;
 
         if (totalItems > 0) {
-            scanCartPreviewBar.classList.add('active');
+            if (scanCartPreviewBar) scanCartPreviewBar.classList.add('active');
         } else {
-            scanCartPreviewBar.classList.remove('active');
+            if (scanCartPreviewBar) scanCartPreviewBar.classList.remove('active');
+        }
+
+        // Also update the list preview bar
+        const listCartCount = document.getElementById('list-cart-count');
+        const listCartTotal = document.getElementById('list-cart-total');
+        const listCartPreviewBar = document.getElementById('list-cart-preview-bar');
+        if (listCartCount) listCartCount.textContent = totalItems;
+        if (listCartTotal) listCartTotal.textContent = `NT$ ${subtotal.toLocaleString()}`;
+        if (listCartPreviewBar) {
+            if (totalItems > 0) {
+                listCartPreviewBar.style.display = 'flex';
+            } else {
+                listCartPreviewBar.style.display = 'none';
+            }
         }
     }
 
@@ -486,7 +552,47 @@ document.addEventListener('DOMContentLoaded', () => {
             if (confirm('確定要清空購物車嗎？')) {
                 state.cart = [];
                 renderCartItems();
+                updateScanCartPreview();
             }
+        });
+
+        // Order Input List Filter Logic
+        const orderSearchField = document.getElementById('order-search-field');
+        const btnOrderSearchSubmit = document.getElementById('btn-order-search-submit');
+        const filterOrderInputList = () => {
+            const query = orderSearchField.value.trim().toLowerCase();
+            const items = document.querySelectorAll('#order-query-list-container .product-order-item');
+            items.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                if (text.includes(query)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        };
+        if (orderSearchField) {
+            orderSearchField.addEventListener('input', filterOrderInputList);
+        }
+        if (btnOrderSearchSubmit) {
+            btnOrderSearchSubmit.addEventListener('click', filterOrderInputList);
+        }
+
+        // Order Input List Clicks
+        const orderItems = document.querySelectorAll('#order-query-list-container .product-order-item');
+        orderItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const dataId = item.getAttribute('data-id');
+                if (dataId === 'SH-2024001') {
+                    if (confirm('確定要將「經典手工牛皮鞋 (尺寸: 25.5)」加入訂單嗎？')) {
+                        addItemToCart('經典手工牛皮鞋', '25.5', 3200);
+                        updateScanCartPreview();
+                        alert('已成功將商品加入訂單！');
+                    }
+                } else {
+                    alert('該商品目前無可用庫存，無法選取加入訂單。');
+                }
+            });
         });
 
         // Submit Order
