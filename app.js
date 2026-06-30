@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 id: 'ORD-2026063001',
                 time: '2026-06-30 09:15',
                 phone: '0912-345-678',
-                items: [{ title: '經典手工牛皮鞋', size: '25.5', qty: 1, price: 3200 }],
+                items: [{ title: '經典手工牛皮鞋', code: '#SH-2024001', size: '25.5', qty: 1, price: 3200 }],
                 total: 3360,
                 status: 'completed'
             },
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 id: 'ORD-2026062908',
                 time: '2026-06-29 16:40',
                 phone: '0988-777-666',
-                items: [{ title: '經典手工牛皮鞋', size: '26.0', qty: 2, price: 3200 }],
+                items: [{ title: '經典手工牛皮鞋', code: '#SH-2024001', size: '26.0', qty: 2, price: 3200 }],
                 total: 6720,
                 status: 'completed'
             }
@@ -58,6 +58,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnOtherStoreBack = document.getElementById('btn-other-store-back');
     const btnOrderScanBack = document.getElementById('btn-order-scan-back');
     const btnCheckoutBack = document.getElementById('btn-checkout-back');
+    const btnHistoryBack = document.getElementById('btn-history-back');
+    const homeAvatar = document.getElementById('home-avatar');
     
     // Home Dashboard Buttons
     const homeBtnScanInv = document.getElementById('home-btn-scan-inv');
@@ -209,13 +211,15 @@ document.addEventListener('DOMContentLoaded', () => {
         homeBtnScanInv.addEventListener('click', () => navigateTo('screen-inventory-scan'));
         homeBtnCreateOrder.addEventListener('click', () => navigateTo('screen-order-scan'));
         homeBtnQueryOrder.addEventListener('click', () => navigateTo('screen-order-history'));
-
+        homeAvatar.addEventListener('click', () => navigateTo('screen-user-info'));
+ 
         // Back Buttons
         btnScanInvBack.addEventListener('click', () => navigateTo('screen-home'));
         btnInvResultBack.addEventListener('click', () => navigateTo('screen-inventory-scan'));
         btnOtherStoreBack.addEventListener('click', () => navigateTo('screen-inventory-result'));
         btnOrderScanBack.addEventListener('click', () => navigateTo('screen-home'));
         btnCheckoutBack.addEventListener('click', () => navigateTo('screen-order-scan'));
+        btnHistoryBack.addEventListener('click', () => navigateTo('screen-home'));
     }
 
     // KEYPAD INPUT SYSTEM
@@ -417,6 +421,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             state.cart.push({
                 title,
+                code: '#SH-2024001',
                 size,
                 price,
                 qty: 1
@@ -569,7 +574,11 @@ document.addEventListener('DOMContentLoaded', () => {
         if (query !== '') {
             filtered = state.orders.filter(ord => 
                 ord.id.toLowerCase().includes(query) || 
-                ord.phone.includes(query)
+                ord.phone.includes(query) ||
+                ord.items.some(item => 
+                    item.title.toLowerCase().includes(query) ||
+                    (item.code && item.code.toLowerCase().includes(query))
+                )
             );
         }
 

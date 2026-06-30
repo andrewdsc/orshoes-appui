@@ -96,7 +96,7 @@
                 <div id="screen-home" class="screen">
                     <div class="screen-header">
                         <div class="user-greeting">
-                            <div class="user-avatar-small">
+                            <div class="user-avatar-small" id="home-avatar" style="cursor: pointer;">
                                 <i class="fa-solid fa-user-tie"></i>
                             </div>
                             <div>
@@ -136,18 +136,6 @@
                                 <div class="action-icon bg-emerald"><i class="fa-solid fa-file-invoice"></i></div>
                                 <span>訂單查詢</span>
                             </button>
-                        </div>
-
-                        <!-- System Alerts -->
-                        <h4 class="section-title">即時庫存警示</h4>
-                        <div class="alert-list">
-                            <div class="alert-item warning">
-                                <div class="alert-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
-                                <div class="alert-info">
-                                    <h5>經典手工牛皮鞋 庫存偏低</h5>
-                                    <p>型號 #SH-2024001 尺寸 26.5 目前總庫僅剩 2 雙。</p>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -344,14 +332,15 @@
                 <!-- 8. Order History Screen -->
                 <div id="screen-order-history" class="screen">
                     <div class="screen-header">
+                        <button class="back-btn" id="btn-history-back"><i class="fa-solid fa-chevron-left"></i></button>
                         <h2>訂單歷史查詢</h2>
-                        <div style="width: 40px;"></div>
+                        <div style="width: 48px;"></div>
                     </div>
                     <div class="screen-content scrollable">
                         <!-- Search input -->
                         <div class="search-bar">
                             <i class="fa-solid fa-magnifying-glass"></i>
-                            <input type="text" id="order-search-input" placeholder="搜尋訂單編號 / 會員電話">
+                            <input type="text" id="order-search-input" placeholder="搜尋訂單編號 / 會員電話 / 商品品號">
                         </div>
                         
                         <!-- Order list -->
