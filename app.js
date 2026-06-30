@@ -59,6 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnOrderScanBack = document.getElementById('btn-order-scan-back');
     const btnCheckoutBack = document.getElementById('btn-checkout-back');
     const btnHistoryBack = document.getElementById('btn-history-back');
+    const btnUserInfoBack = document.getElementById('btn-user-info-back');
     const homeAvatar = document.getElementById('home-avatar');
     
     // Home Dashboard Buttons
@@ -220,6 +221,7 @@ document.addEventListener('DOMContentLoaded', () => {
         btnOrderScanBack.addEventListener('click', () => navigateTo('screen-home'));
         btnCheckoutBack.addEventListener('click', () => navigateTo('screen-order-scan'));
         btnHistoryBack.addEventListener('click', () => navigateTo('screen-home'));
+        btnUserInfoBack.addEventListener('click', () => navigateTo('screen-home'));
     }
 
     // KEYPAD INPUT SYSTEM
