@@ -603,20 +603,27 @@ body {
     color: #059669;
 }
 
-/* Quick Actions Grid */
+/* Quick Actions List (Parallel Row Style) */
 .action-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
 }
 
 .action-card {
     background: var(--bg-card);
     border: 2px solid var(--border-color);
     border-radius: 18px;
-    padding: 20px 8px;
-    gap: 14px;
+    padding: 0 16px;
+    height: 72px; /* Taller button for easier tapping */
+    display: flex;
+    flex-direction: row; /* row layout */
+    align-items: center;
+    justify-content: flex-start;
+    gap: 16px;
+    cursor: pointer;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    transition: background var(--transition-speed), border-color var(--transition-speed), transform 0.1s;
 }
 
 .action-card:hover {
@@ -624,11 +631,19 @@ body {
     border-color: var(--primary);
 }
 
+.action-card:active {
+    transform: scale(0.98);
+}
+
 .action-icon {
-    width: 52px;
-    height: 52px;
-    border-radius: 14px;
-    font-size: 22px;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
 }
 
 .action-icon.bg-blue { background: rgba(59, 130, 246, 0.1); color: #2563EB; border: 2px solid rgba(59, 130, 246, 0.2); }
@@ -636,9 +651,20 @@ body {
 .action-icon.bg-emerald { background: rgba(16, 185, 129, 0.1); color: #059669; border: 2px solid rgba(16, 185, 129, 0.2); }
 
 .action-card span {
-    font-size: 15px;
+    font-size: 18px; /* Enlarged font size */
     font-weight: 700;
     color: var(--text-main);
+    flex-grow: 1;
+    text-align: left;
+}
+
+.action-card::after {
+    content: '\f054';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    font-size: 16px;
+    color: var(--text-muted);
+    margin-left: auto;
 }
 
 /* Warnings/Alerts */
