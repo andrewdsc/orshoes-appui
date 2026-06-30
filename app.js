@@ -128,6 +128,15 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Hide bottom nav initially for Login Screen
         bottomNav.style.display = 'none';
+
+        // Register PWA Service Worker for offline and desktop app support
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./service-worker.js')
+                    .then(reg => console.log('Service Worker registered successfully!', reg.scope))
+                    .catch(err => console.log('Service Worker registration failed:', err));
+            });
+        }
     }
 
     // CLOCK UPDATE
