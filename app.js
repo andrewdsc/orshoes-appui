@@ -121,10 +121,6 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Hide bottom nav initially for Login Screen
         bottomNav.style.display = 'none';
-        
-        // Initial setup for input focus styling
-        inputGroupId.classList.add('focused');
-        loginIdInput.focus();
     }
 
     // CLOCK UPDATE
@@ -230,21 +226,26 @@ document.addEventListener('DOMContentLoaded', () => {
     // KEYPAD INPUT SYSTEM
     function setupKeypad() {
         // Toggle input fields focus on tap
-        inputGroupId.addEventListener('click', () => {
+        inputGroupId.addEventListener('click', (e) => {
+            e.stopPropagation();
             state.activeInput = 'login-id';
             inputGroupId.classList.add('focused');
             inputGroupPwd.classList.remove('focused');
+            openKeypad();
         });
 
-        inputGroupPwd.addEventListener('click', () => {
+        inputGroupPwd.addEventListener('click', (e) => {
+            e.stopPropagation();
             state.activeInput = 'login-pwd';
             inputGroupPwd.classList.add('focused');
             inputGroupId.classList.remove('focused');
+            openKeypad();
         });
 
         // Keypad button listeners
         keypadButtons.forEach(btn => {
-            btn.addEventListener('click', () => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation(); // Prevent closing keypad
                 const val = btn.getAttribute('data-val');
                 const targetInput = state.activeInput === 'login-id' ? loginIdInput : loginPwdInput;
                 
@@ -260,7 +261,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Toggle Password Visibility
         togglePwdBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
+            e.stopPropagation(); // Prevent keyboard slide trigger
             if (loginPwdInput.type === 'password') {
                 loginPwdInput.type = 'text';
                 togglePwdBtn.classList.remove('fa-eye-slash');
@@ -271,6 +272,29 @@ document.addEventListener('DOMContentLoaded', () => {
                 togglePwdBtn.classList.add('fa-eye-slash');
             }
         });
+
+        // Close keypad when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.input-group') && !e.target.closest('.custom-keypad')) {
+                closeKeypad();
+            }
+        });
+    }
+
+    function openKeypad() {
+        const keypad = document.querySelector('.custom-keypad');
+        if (keypad) {
+            keypad.classList.add('active');
+        }
+    }
+
+    function closeKeypad() {
+        const keypad = document.querySelector('.custom-keypad');
+        if (keypad) {
+            keypad.classList.remove('active');
+        }
+        inputGroupId.classList.remove('focused');
+        inputGroupPwd.classList.remove('focused');
     }
 
     // LOGIN PROCESS
@@ -290,6 +314,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 name: '王大明',
                 role: '信義旗艦店 - 資深銷售顧問'
             };
+
+            closeKeypad();
 
             // Switch to home screen
             navigateTo('screen-home');
