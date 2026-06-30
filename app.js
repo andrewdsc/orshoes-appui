@@ -133,7 +133,21 @@ document.addEventListener('DOMContentLoaded', () => {
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('./service-worker.js')
-                    .then(reg => console.log('Service Worker registered successfully!', reg.scope))
+                    .then(reg => {
+                        console.log('Service Worker registered successfully!', reg.scope);
+                        // Detect updates to service worker assets
+                        reg.onupdatefound = () => {
+                            const installingWorker = reg.installing;
+                            installingWorker.onstatechange = () => {
+                                if (installingWorker.state === 'installed') {
+                                    if (navigator.serviceWorker.controller) {
+                                        console.log('New content detected, reloading to apply updates...');
+                                        window.location.reload();
+                                    }
+                                }
+                            };
+                        };
+                    })
                     .catch(err => console.log('Service Worker registration failed:', err));
             });
         }
