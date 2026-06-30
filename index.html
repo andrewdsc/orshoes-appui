@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORSHOES - 門市智慧庫存銷售系統</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <!-- Background visual wrapper for desktop -->
+    <div class="desktop-bg">
+        <div class="bg-glow-1"></div>
+        <div class="bg-glow-2"></div>
+        
+        <!-- Phone Frame Wrapper -->
+        <div class="phone-frame">
+            <div class="phone-camera-notch">
+                <div class="notch-lens"></div>
+                <div class="notch-speaker"></div>
+            </div>
+            <div class="phone-side-buttons">
+                <div class="vol-up"></div>
+                <div class="vol-down"></div>
+                <div class="power"></div>
+            </div>
+            
+            <!-- App Container -->
+            <div id="app" class="app-container">
+                <!-- Status Bar -->
+                <div class="status-bar">
+                    <span class="status-time" id="status-time">11:52</span>
+                    <div class="status-icons">
+                        <i class="fa-solid fa-signal"></i>
+                        <i class="fa-solid fa-wifi"></i>
+                        <i class="fa-solid fa-battery-three-quarters"></i>
+                    </div>
+                </div>
+
+                <!-- SCREENS -->
+                
+                <!-- 1. Login Screen -->
+                <div id="screen-login" class="screen active">
+                    <div class="login-header">
+                        <div class="brand-logo">
+                            <i class="fa-solid fa-shoe-prints"></i>
+                            <span>ORSHOES</span>
+                        </div>
+                        <h2>員工登入</h2>
+                    </div>
+                    <div class="login-form">
+                        <div class="input-group" id="input-group-id">
+                            <label for="login-id">員工編號</label>
+                            <div class="input-wrapper">
+                                <i class="fa-regular fa-user"></i>
+                                <input type="text" id="login-id" readonly placeholder="請點選鍵盤輸入">
+                            </div>
+                        </div>
+                        <div class="input-group" id="input-group-pwd">
+                            <label for="login-pwd">登入密碼</label>
+                            <div class="input-wrapper">
+                                <i class="fa-regular fa-lock"></i>
+                                <input type="password" id="login-pwd" readonly placeholder="請點選鍵盤輸入">
+                                <i class="fa-regular fa-eye-slash toggle-pwd" id="toggle-pwd-btn"></i>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" id="btn-login-submit">進入系統</button>
+                    </div>
+                    <!-- Custom Keypad -->
+                    <div class="custom-keypad">
+                        <button class="key-btn" data-val="1">1</button>
+                        <button class="key-btn" data-val="2">2<span class="key-sub">ABC</span></button>
+                        <button class="key-btn" data-val="3">3<span class="key-sub">DEF</span></button>
+                        <button class="key-btn" data-val="4">4<span class="key-sub">GHI</span></button>
+                        <button class="key-btn" data-val="5">5<span class="key-sub">JKL</span></button>
+                        <button class="key-btn" data-val="6">6<span class="key-sub">MNO</span></button>
+                        <button class="key-btn" data-val="7">7<span class="key-sub">PQRS</span></button>
+                        <button class="key-btn" data-val="8">8<span class="key-sub">TUV</span></button>
+                        <button class="key-btn" data-val="9">9<span class="key-sub">WXYZ</span></button>
+                        <button class="key-btn" data-val="clear"><i class="fa-solid fa-rotate-left"></i></button>
+                        <button class="key-btn" data-val="0">0</button>
+                        <button class="key-btn" data-val="backspace"><i class="fa-solid fa-delete-left"></i></button>
+                    </div>
+                </div>
+
+                <!-- 2. Home/Dashboard Screen -->
+                <div id="screen-home" class="screen">
+                    <div class="screen-header">
+                        <div class="user-greeting">
+                            <div class="user-avatar-small">
+                                <i class="fa-solid fa-user-tie"></i>
+                            </div>
+                            <div>
+                                <h3>您好，王大明</h3>
+                                <p>今日門市排班：信義旗艦店</p>
+                            </div>
+                        </div>
+                        <button class="notification-btn"><i class="fa-regular fa-bell"></i><span class="badge">1</span></button>
+                    </div>
+                    <div class="screen-content scrollable">
+                        <!-- Stats Grid -->
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <span class="stat-label">今日個人業績</span>
+                                <span class="stat-val">NT$ 12,800</span>
+                                <span class="stat-change positive"><i class="fa-solid fa-arrow-trend-up"></i> +15%</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-label">已開立訂單</span>
+                                <span class="stat-val">4 筆</span>
+                                <span class="stat-change">達成率 80%</span>
+                            </div>
+                        </div>
+
+                        <!-- Quick Actions -->
+                        <h4 class="section-title">快捷操作</h4>
+                        <div class="action-grid">
+                            <button class="action-card" id="home-btn-scan-inv">
+                                <div class="action-icon bg-blue"><i class="fa-solid fa-qrcode"></i></div>
+                                <span>庫存掃描</span>
+                            </button>
+                            <button class="action-card" id="home-btn-create-order">
+                                <div class="action-icon bg-purple"><i class="fa-solid fa-cart-plus"></i></div>
+                                <span>訂單開立</span>
+                            </button>
+                            <button class="action-card" id="home-btn-query-order">
+                                <div class="action-icon bg-emerald"><i class="fa-solid fa-file-invoice"></i></div>
+                                <span>訂單查詢</span>
+                            </button>
+                        </div>
+
+                        <!-- System Alerts -->
+                        <h4 class="section-title">即時庫存警示</h4>
+                        <div class="alert-list">
+                            <div class="alert-item warning">
+                                <div class="alert-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                                <div class="alert-info">
+                                    <h5>經典手工牛皮鞋 庫存偏低</h5>
+                                    <p>型號 #SH-2024001 尺寸 26.5 目前總庫僅剩 2 雙。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Inventory Scan Screen -->
+                <div id="screen-inventory-scan" class="screen">
+                    <div class="screen-header">
+                        <button class="back-btn" id="btn-scan-inv-back"><i class="fa-solid fa-chevron-left"></i></button>
+                        <h2>庫存掃描</h2>
+                        <button class="flash-btn" id="btn-flashlight-inv"><i class="fa-solid fa-bolt"></i> 閃光燈</button>
+                    </div>
+                    <div class="scan-viewfinder">
+                        <div class="scan-overlay"></div>
+                        <div class="scan-box">
+                            <div class="corner top-left"></div>
+                            <div class="corner top-right"></div>
+                            <div class="corner bottom-left"></div>
+                            <div class="corner bottom-right"></div>
+                            <div class="scan-laser"></div>
+                            <div class="mock-qr-code">
+                                <i class="fa-solid fa-qrcode"></i>
+                            </div>
+                        </div>
+                        <div class="scan-instructions">
+                            <p>請將商品 QR Code 對準框線內</p>
+                            <span class="scan-simulation-tip">正在模擬自動對焦中...</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Inventory Query Results Screen -->
+                <div id="screen-inventory-result" class="screen">
+                    <div class="screen-header">
+                        <button class="back-btn" id="btn-inv-result-back"><i class="fa-solid fa-chevron-left"></i></button>
+                        <h2>庫存查詢結果</h2>
+                        <div style="width: 40px;"></div>
+                    </div>
+                    <div class="screen-content scrollable">
+                        <!-- Inventory Summary Header -->
+                        <div class="inv-summary-header">
+                            <div class="summary-card">
+                                <span class="summary-label">庫別名稱</span>
+                                <span class="summary-value highlight">總庫</span>
+                            </div>
+                            <div class="summary-card">
+                                <span class="summary-label">總數量</span>
+                                <span class="summary-value">15 <span class="unit">雙</span></span>
+                            </div>
+                        </div>
+
+                        <!-- Product Info Card -->
+                        <div class="product-info-card">
+                            <div class="product-image-container">
+                                <img src="classic_leather_shoes.jpg" alt="經典手工牛皮鞋" class="product-image">
+                            </div>
+                            <div class="product-details">
+                                <h3>經典手工牛皮鞋</h3>
+                                <p class="product-code">型號：#SH-2024001</p>
+                            </div>
+                        </div>
+
+                        <!-- Size Grid Selection -->
+                        <h4 class="section-title">訂單輸入 (品項選擇)</h4>
+                        <div class="size-selection-grid">
+                            <button class="size-btn available active" data-size="25.0">25.0</button>
+                            <button class="size-btn available" data-size="25.5">25.5</button>
+                            <button class="size-btn available" data-size="26.0">26.0</button>
+                            <button class="size-btn out-of-stock" data-size="26.5" disabled>26.5 <span class="btn-sub-badge">低庫存</span></button>
+                            <button class="size-btn out-of-stock" data-size="27.0" disabled>27.0 <span class="btn-sub-badge">缺貨</span></button>
+                            <button class="size-btn out-of-stock" data-size="27.5" disabled>27.5 <span class="btn-sub-badge">缺貨</span></button>
+                        </div>
+
+                        <!-- Actions for Inventory Result -->
+                        <div class="inv-result-actions">
+                            <button class="btn btn-primary" id="btn-add-to-order-now">
+                                <i class="fa-solid fa-cart-plus"></i> 立即開立訂單
+                            </button>
+                            <button class="btn btn-secondary" id="btn-query-other-stores">
+                                <i class="fa-solid fa-store"></i> 查詢他店庫存
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Other Store Inventory Screen -->
+                <div id="screen-other-store" class="screen">
+                    <div class="screen-header">
+                        <button class="back-btn" id="btn-other-store-back"><i class="fa-solid fa-chevron-left"></i></button>
+                        <h2>其他門市庫存</h2>
+                        <div style="width: 40px;"></div>
+                    </div>
+                    <div class="screen-content scrollable">
+                        <!-- Filters -->
+                        <div class="store-filter-bar">
+                            <div class="filter-select-wrapper">
+                                <select id="store-distance-filter">
+                                    <option value="all">選擇距離 (全部)</option>
+                                    <option value="15">15 km 內</option>
+                                    <option value="10">10 km 內</option>
+                                </select>
+                            </div>
+                            <button class="filter-icon-btn"><i class="fa-solid fa-filter"></i></button>
+                        </div>
+
+                        <!-- Store Stock List -->
+                        <div class="store-stock-list" id="store-stock-list-container">
+                            <!-- Store Items will be rendered here dynamically -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. Order Scan Screen -->
+                <div id="screen-order-scan" class="screen">
+                    <div class="screen-header">
+                        <button class="back-btn" id="btn-order-scan-back"><i class="fa-solid fa-chevron-left"></i></button>
+                        <h2>訂單品項掃描</h2>
+                        <button class="flash-btn" id="btn-flashlight-order"><i class="fa-solid fa-bolt"></i> 閃光燈</button>
+                    </div>
+                    <div class="scan-viewfinder">
+                        <div class="scan-overlay"></div>
+                        <div class="scan-box">
+                            <div class="corner top-left"></div>
+                            <div class="corner top-right"></div>
+                            <div class="corner bottom-left"></div>
+                            <div class="corner bottom-right"></div>
+                            <div class="scan-laser blue"></div>
+                            <div class="mock-qr-code">
+                                <i class="fa-solid fa-qrcode"></i>
+                            </div>
+                        </div>
+                        <div class="scan-instructions">
+                            <p>請掃描商品條碼以加入銷貨單</p>
+                            <span class="scan-simulation-tip">正在模擬自動對焦中...</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Scan Screen Float Cart Summary -->
+                    <div class="scan-cart-preview" id="scan-cart-preview-bar">
+                        <div class="cart-preview-info">
+                            <i class="fa-solid fa-shopping-cart"></i>
+                            <div>
+                                <span class="cart-preview-count">已加入 0 項商品</span>
+                                <span class="cart-preview-total">NT$ 0</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-sm btn-primary" id="btn-go-to-checkout">下一步 <i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- 7. Order Cart & Checkout Screen -->
+                <div id="screen-order-checkout" class="screen">
+                    <div class="screen-header">
+                        <button class="back-btn" id="btn-checkout-back"><i class="fa-solid fa-chevron-left"></i></button>
+                        <h2>購物車與結帳</h2>
+                        <button class="clear-cart-btn" id="btn-clear-cart"><i class="fa-regular fa-trash-can"></i></button>
+                    </div>
+                    <div class="screen-content scrollable">
+                        <div class="cart-items-list" id="checkout-cart-items">
+                            <!-- Cart Items rendered dynamically -->
+                        </div>
+                        
+                        <!-- Pricing Details -->
+                        <div class="pricing-summary-card">
+                            <div class="pricing-row">
+                                <span>商品小計</span>
+                                <span id="checkout-subtotal">NT$ 0</span>
+                            </div>
+                            <div class="pricing-row">
+                                <span>營業稅 (5%)</span>
+                                <span id="checkout-tax">NT$ 0</span>
+                            </div>
+                            <hr class="pricing-divider">
+                            <div class="pricing-row total">
+                                <span>應付總額</span>
+                                <span id="checkout-total" class="highlight">NT$ 0</span>
+                            </div>
+                        </div>
+
+                        <!-- Customer Details Info -->
+                        <h4 class="section-title">顧客資訊</h4>
+                        <div class="customer-info-form">
+                            <div class="form-row">
+                                <label for="cust-phone">會員電話</label>
+                                <input type="text" id="cust-phone" placeholder="輸入會員電話號碼 (選填)" value="0912-345-678">
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary btn-block btn-lg" id="btn-submit-order" style="margin-top: 20px; margin-bottom: 25px;">
+                            <i class="fa-solid fa-circle-check"></i> 確認送出訂單
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 8. Order History Screen -->
+                <div id="screen-order-history" class="screen">
+                    <div class="screen-header">
+                        <h2>訂單歷史查詢</h2>
+                        <div style="width: 40px;"></div>
+                    </div>
+                    <div class="screen-content scrollable">
+                        <!-- Search input -->
+                        <div class="search-bar">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <input type="text" id="order-search-input" placeholder="搜尋訂單編號 / 會員電話">
+                        </div>
+                        
+                        <!-- Order list -->
+                        <div class="order-history-list" id="order-history-container">
+                            <!-- Orders will be rendered here dynamically -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 9. User Info Screen -->
+                <div id="screen-user-info" class="screen">
+                    <div class="screen-header">
+                        <h2>使用者資訊</h2>
+                        <div style="width: 40px;"></div>
+                    </div>
+                    <div class="screen-content scrollable">
+                        <div class="user-profile-card">
+                            <div class="user-avatar-large">
+                                <i class="fa-solid fa-user-tie"></i>
+                                <span class="online-status-dot"></span>
+                            </div>
+                            <h2>王大明</h2>
+                            <p class="user-role">信義旗艦店 - 資深銷售顧問</p>
+                        </div>
+                        
+                        <!-- Info fields -->
+                        <div class="info-list">
+                            <div class="info-item">
+                                <span class="info-label">員工編號</span>
+                                <span class="info-value">EM-99214</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">登入密碼</span>
+                                <span class="info-value text-muted">23********</span>
+                            </div>
+                        </div>
+
+                        <!-- Settings links -->
+                        <div class="menu-list">
+                            <button class="menu-item">
+                                <div class="menu-item-left">
+                                    <i class="fa-solid fa-user-shield"></i>
+                                    <span>私人設定</span>
+                                </div>
+                                <i class="fa-solid fa-chevron-right text-muted"></i>
+                            </button>
+                            <button class="menu-item">
+                                <div class="menu-item-left">
+                                    <i class="fa-solid fa-sliders"></i>
+                                    <span>實用設置</span>
+                                </div>
+                                <i class="fa-solid fa-chevron-right text-muted"></i>
+                            </button>
+                        </div>
+
+                        <!-- Logout -->
+                        <button class="btn btn-outline-danger btn-block" id="btn-logout" style="margin-top: 30px; margin-bottom: 25px;">
+                            <i class="fa-solid fa-right-from-bracket"></i> 登出系統
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Navigation Bar -->
+                <nav class="bottom-nav" id="app-bottom-nav">
+                    <button class="nav-item active" data-target="screen-home" id="nav-item-home">
+                        <i class="fa-solid fa-house"></i>
+                        <span>首頁</span>
+                    </button>
+                    <button class="nav-item" data-target="screen-inventory-scan" id="nav-item-inventory">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <span>庫存查詢</span>
+                    </button>
+                    <button class="nav-item" data-target="screen-order-scan" id="nav-item-order">
+                        <i class="fa-solid fa-shopping-cart"></i>
+                        <span>訂單輸入</span>
+                    </button>
+                    <button class="nav-item" data-target="screen-order-history" id="nav-item-history">
+                        <i class="fa-solid fa-file-invoice"></i>
+                        <span>訂單查詢</span>
+                    </button>
+                    <button class="nav-item" data-target="screen-user-info" id="nav-item-user">
+                        <i class="fa-solid fa-user"></i>
+                        <span>使用者</span>
+                    </button>
+                </nav>
+
+                <!-- Fullscreen Success Animation Overlay -->
+                <div class="checkout-success-overlay" id="checkout-success-overlay">
+                    <div class="success-card">
+                        <div class="success-icon-circle">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                        <h2>訂單送出成功</h2>
+                        <p class="success-order-id" id="success-order-id-label">訂單編號：#ORD-2026063001</p>
+                        <p class="success-message">商品庫存已扣除，正在列印銷貨收據...</p>
+                        <button class="btn btn-primary" id="btn-success-ok">確定</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Main JS Application Logic -->
+    <script src="app.js"></script>
+</body>
+</html>
