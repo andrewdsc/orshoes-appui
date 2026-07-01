@@ -11,9 +11,9 @@
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="index.css?v=3">
+    <link rel="stylesheet" href="index.css?v=4">
     <!-- PWA Manifest & Mobile Meta Tags -->
-    <link rel="manifest" href="manifest.json?v=3">
+    <link rel="manifest" href="manifest.json?v=4">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Orshoes">
@@ -65,33 +65,18 @@
                             <label for="login-id">員工編號</label>
                             <div class="input-wrapper">
                                 <i class="fa-regular fa-user"></i>
-                                <input type="text" id="login-id" readonly placeholder="請點選鍵盤輸入">
+                                <input type="text" id="login-id" inputmode="numeric" placeholder="請輸入員工編號">
                             </div>
                         </div>
                         <div class="input-group" id="input-group-pwd">
                             <label for="login-pwd">登入密碼</label>
                             <div class="input-wrapper">
                                 <i class="fa-regular fa-lock"></i>
-                                <input type="password" id="login-pwd" readonly placeholder="請點選鍵盤輸入">
+                                <input type="password" id="login-pwd" inputmode="numeric" placeholder="請輸入密碼">
                                 <i class="fa-regular fa-eye-slash toggle-pwd" id="toggle-pwd-btn"></i>
                             </div>
                         </div>
                         <button class="btn btn-primary" id="btn-login-submit">進入系統</button>
-                    </div>
-                    <!-- Custom Keypad -->
-                    <div class="custom-keypad">
-                        <button class="key-btn" data-val="1">1</button>
-                        <button class="key-btn" data-val="2">2<span class="key-sub">ABC</span></button>
-                        <button class="key-btn" data-val="3">3<span class="key-sub">DEF</span></button>
-                        <button class="key-btn" data-val="4">4<span class="key-sub">GHI</span></button>
-                        <button class="key-btn" data-val="5">5<span class="key-sub">JKL</span></button>
-                        <button class="key-btn" data-val="6">6<span class="key-sub">MNO</span></button>
-                        <button class="key-btn" data-val="7">7<span class="key-sub">PQRS</span></button>
-                        <button class="key-btn" data-val="8">8<span class="key-sub">TUV</span></button>
-                        <button class="key-btn" data-val="9">9<span class="key-sub">WXYZ</span></button>
-                        <div class="key-btn-empty" style="visibility: hidden; pointer-events: none;"></div>
-                        <button class="key-btn" data-val="0">0</button>
-                        <button class="key-btn" data-val="backspace"><i class="fa-solid fa-delete-left"></i></button>
                     </div>
                 </div>
 
@@ -571,6 +556,6 @@
     </div>
 
     <!-- Main JS Application Logic -->
-    <script src="app.js?v=3"></script>
+    <script src="app.js?v=4"></script>
 </body>
 </html>

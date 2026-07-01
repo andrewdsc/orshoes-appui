@@ -48,7 +48,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const loginPwdInput = document.getElementById('login-pwd');
     const inputGroupId = document.getElementById('input-group-id');
     const inputGroupPwd = document.getElementById('input-group-pwd');
-    const keypadButtons = document.querySelectorAll('.key-btn');
     const btnLoginSubmit = document.getElementById('btn-login-submit');
     const togglePwdBtn = document.getElementById('toggle-pwd-btn');
     
@@ -119,7 +118,6 @@ document.addEventListener('DOMContentLoaded', () => {
         updateClock();
         setInterval(updateClock, 1000);
         setupNavigation();
-        setupKeypad();
         setupLogin();
         setupInventoryFlow();
         setupCheckoutFlow();
@@ -283,45 +281,28 @@ document.addEventListener('DOMContentLoaded', () => {
         btnListCheckoutNext.addEventListener('click', () => navigateTo('screen-checkout'));
     }
 
-    // KEYPAD INPUT SYSTEM
-    function setupKeypad() {
-        // Toggle input fields focus on tap
-        inputGroupId.addEventListener('click', (e) => {
-            e.stopPropagation();
-            state.activeInput = 'login-id';
+    // LOGIN PROCESS
+    function setupLogin() {
+        // Toggle focus borders on native keyboard focus
+        loginIdInput.addEventListener('focus', () => {
             inputGroupId.classList.add('focused');
             inputGroupPwd.classList.remove('focused');
-            openKeypad();
+        });
+        loginIdInput.addEventListener('blur', () => {
+            inputGroupId.classList.remove('focused');
         });
 
-        inputGroupPwd.addEventListener('click', (e) => {
-            e.stopPropagation();
-            state.activeInput = 'login-pwd';
+        loginPwdInput.addEventListener('focus', () => {
             inputGroupPwd.classList.add('focused');
             inputGroupId.classList.remove('focused');
-            openKeypad();
         });
-
-        // Keypad button listeners
-        keypadButtons.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.stopPropagation(); // Prevent closing keypad
-                const val = btn.getAttribute('data-val');
-                const targetInput = state.activeInput === 'login-id' ? loginIdInput : loginPwdInput;
-                
-                if (val === 'clear') {
-                    targetInput.value = '';
-                } else if (val === 'backspace') {
-                    targetInput.value = targetInput.value.slice(0, -1);
-                } else {
-                    targetInput.value += val;
-                }
-            });
+        loginPwdInput.addEventListener('blur', () => {
+            inputGroupPwd.classList.remove('focused');
         });
 
         // Toggle Password Visibility
         togglePwdBtn.addEventListener('click', (e) => {
-            e.stopPropagation(); // Prevent keyboard slide trigger
+            e.stopPropagation();
             if (loginPwdInput.type === 'password') {
                 loginPwdInput.type = 'text';
                 togglePwdBtn.classList.remove('fa-eye-slash');
@@ -333,32 +314,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Close keypad when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!e.target.closest('.input-group') && !e.target.closest('.custom-keypad')) {
-                closeKeypad();
-            }
-        });
-    }
-
-    function openKeypad() {
-        const keypad = document.querySelector('.custom-keypad');
-        if (keypad) {
-            keypad.classList.add('active');
-        }
-    }
-
-    function closeKeypad() {
-        const keypad = document.querySelector('.custom-keypad');
-        if (keypad) {
-            keypad.classList.remove('active');
-        }
-        inputGroupId.classList.remove('focused');
-        inputGroupPwd.classList.remove('focused');
-    }
-
-    // LOGIN PROCESS
-    function setupLogin() {
+        // Submit Login Form
         btnLoginSubmit.addEventListener('click', () => {
             const idVal = loginIdInput.value.trim();
             const pwdVal = loginPwdInput.value.trim();
@@ -374,8 +330,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 name: '王大明',
                 role: '信義旗艦店 - 資深銷售顧問'
             };
-
-            closeKeypad();
 
             // Switch to home screen
             navigateTo('screen-home');
