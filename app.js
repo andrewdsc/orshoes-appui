@@ -74,7 +74,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const homeBtnQueryOrder = document.getElementById('home-btn-query-order');
     
     // Inventory Result Elements
-    const sizeButtons = document.querySelectorAll('.size-btn');
     const btnAddToOrderNow = document.getElementById('btn-add-to-order-now');
     const btnQueryOtherStores = document.getElementById('btn-query-other-stores');
     
@@ -350,17 +349,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function setupInventoryFlow() {
-        // Size Selector
-        sizeButtons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                if (btn.classList.contains('out-of-stock')) return;
-                
-                sizeButtons.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                state.selectedSize = btn.getAttribute('data-size');
-            });
-        });
-
         // Add to Order button redirects to Checkout
         btnAddToOrderNow.addEventListener('click', () => {
             // Add selected item to cart
