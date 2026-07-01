@@ -764,6 +764,64 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // USER SETTINGS & LOGOUT
     function setupUserSettings() {
+        const btnGotoSettings = document.getElementById('btn-goto-settings');
+        const btnSettingsBack = document.getElementById('btn-settings-back');
+        const fontScaleRadios = document.getElementsByName('font-scale-radio');
+
+        // Settings Navigation
+        if (btnGotoSettings) {
+            btnGotoSettings.addEventListener('click', () => {
+                navigateTo('screen-settings');
+            });
+        }
+        if (btnSettingsBack) {
+            btnSettingsBack.addEventListener('click', () => {
+                navigateTo('screen-user-info');
+            });
+        }
+
+        // Apply saved font scale preference immediately on startup
+        applySavedFontScale();
+
+        // Listen for font scale change
+        fontScaleRadios.forEach(radio => {
+            radio.addEventListener('change', (e) => {
+                const scaleValue = e.target.value;
+                document.documentElement.style.setProperty('--font-scale', scaleValue);
+                localStorage.setItem('orshoes-font-scale', scaleValue);
+                updateRadioLabelsVisuals(scaleValue);
+            });
+        });
+
+        // Helper: Load and apply font scale from local storage
+        function applySavedFontScale() {
+            const savedScale = localStorage.getItem('orshoes-font-scale') || '1.0';
+            document.documentElement.style.setProperty('--font-scale', savedScale);
+            
+            const targetRadio = document.querySelector(`input[name="font-scale-radio"][value="${savedScale}"]`);
+            if (targetRadio) {
+                targetRadio.checked = true;
+            }
+            updateRadioLabelsVisuals(savedScale);
+        }
+
+        // Helper: Update selection label highlighting
+        function updateRadioLabelsVisuals(activeScale) {
+            const scales = ['1.0', '1.15', '1.3', '1.45'];
+            scales.forEach((scale, index) => {
+                const label = document.getElementById(`lbl-scale-${index + 1}`);
+                if (label) {
+                    if (scale === activeScale) {
+                        label.style.setProperty('background', 'rgba(29, 78, 216, 0.08)', 'important');
+                        label.style.setProperty('border-color', 'var(--primary)', 'important');
+                    } else {
+                        label.style.setProperty('background', '#FFFFFF', 'important');
+                        label.style.setProperty('border-color', 'var(--border-color)', 'important');
+                    }
+                }
+            });
+        }
+
         btnLogout.addEventListener('click', () => {
             if (confirm('確定要登出系統嗎？')) {
                 // Clear session and return to login

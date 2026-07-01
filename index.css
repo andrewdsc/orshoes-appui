@@ -38,7 +38,7 @@ body {
     background-color: #E5E7EB; /* Light grey base */
     color: var(--text-main);
     font-family: var(--font-body);
-    font-size: 18px;
+    font-size: calc(18px * var(--font-scale, 1.0));
     overflow: hidden;
 }
 
@@ -155,7 +155,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 0 28px;
-    font-size: 15px;
+    font-size: calc(15px * var(--font-scale, 1.0));
     font-weight: 800;
     color: #1E293B; /* Dark status text */
     z-index: 999;
@@ -215,7 +215,7 @@ body {
 
 .screen-header h2 {
     font-family: var(--font-heading);
-    font-size: 24px;
+    font-size: calc(24px * var(--font-scale, 1.0));
     font-weight: 700;
     letter-spacing: 0.5px;
     text-align: center;
@@ -242,7 +242,7 @@ body {
 .btn {
     font-family: var(--font-heading);
     font-weight: 700;
-    font-size: 20px;
+    font-size: calc(20px * var(--font-scale, 1.0));
     padding: 16px 20px;
     border-radius: 14px;
     border: none;
@@ -294,7 +294,7 @@ body {
 
 .btn-lg {
     padding: 18px 24px;
-    font-size: 22px;
+    font-size: calc(22px * var(--font-scale, 1.0));
 }
 
 .back-btn, .notification-btn, .flash-btn, .clear-cart-btn {
@@ -308,7 +308,7 @@ body {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    font-size: 20px;
+    font-size: calc(20px * var(--font-scale, 1.0));
     transition: background var(--transition-speed);
 }
 
@@ -319,7 +319,7 @@ body {
 .flash-btn {
     width: auto;
     padding: 0 16px;
-    font-size: 17px;
+    font-size: calc(17px * var(--font-scale, 1.0));
     font-weight: 700;
     gap: 8px;
 }
@@ -332,7 +332,7 @@ body {
 /* SECTION TITLES */
 .section-title {
     font-family: var(--font-heading);
-    font-size: 19px;
+    font-size: calc(19px * var(--font-scale, 1.0));
     font-weight: 700;
     color: var(--primary); /* Cheerful primary blue for section titles */
     text-transform: uppercase;
@@ -356,21 +356,21 @@ body {
 }
 
 .brand-logo i {
-    font-size: 40px;
+    font-size: calc(40px * var(--font-scale, 1.0));
     color: var(--primary);
     filter: drop-shadow(0 0 4px rgba(29, 78, 216, 0.2));
 }
 
 .brand-logo span {
     font-family: 'Outfit', sans-serif;
-    font-size: 32px;
+    font-size: calc(32px * var(--font-scale, 1.0));
     font-weight: 800;
     letter-spacing: 2px;
     color: var(--text-main);
 }
 
 .login-header h2 {
-    font-size: 26px;
+    font-size: calc(26px * var(--font-scale, 1.0));
     font-weight: 700;
     color: var(--text-muted);
 }
@@ -386,7 +386,7 @@ body {
 }
 
 .input-group label {
-    font-size: 18px;
+    font-size: calc(18px * var(--font-scale, 1.0));
     color: var(--text-main);
     margin-bottom: 10px;
     font-weight: 700;
@@ -413,7 +413,7 @@ body {
 }
 
 .input-wrapper i {
-    font-size: 20px;
+    font-size: calc(20px * var(--font-scale, 1.0));
     color: var(--text-muted);
     margin-right: 14px;
 }
@@ -426,7 +426,7 @@ body {
     background: transparent;
     border: none;
     color: var(--text-main);
-    font-size: 20px;
+    font-size: calc(20px * var(--font-scale, 1.0));
     font-weight: 700;
     width: 100%;
     outline: none;
@@ -437,7 +437,7 @@ body {
     cursor: pointer;
     margin-left: auto;
     margin-right: 0 !important;
-    font-size: 22px !important;
+    font-size: calc(22px * var(--font-scale, 1.0)) !important;
     color: var(--text-muted);
 }
 
@@ -448,7 +448,7 @@ body {
     width: 80%;
     max-width: 280px;
     height: 64px; /* enlarged height */
-    font-size: 22px; /* enlarged font size */
+    font-size: calc(22px * var(--font-scale, 1.0)); /* enlarged font size */
     font-weight: 800; /* bolder text */
     letter-spacing: 1.5px;
     margin: 25px auto 0 auto; /* centered horizontally */
@@ -475,17 +475,17 @@ body {
     align-items: center;
     justify-content: center;
     color: var(--primary);
-    font-size: 20px;
+    font-size: calc(20px * var(--font-scale, 1.0));
 }
 
 .user-greeting h3 {
-    font-size: 20px;
+    font-size: calc(20px * var(--font-scale, 1.0));
     font-weight: 700;
     color: var(--text-main);
 }
 
 .user-greeting p {
-    font-size: 15px;
+    font-size: calc(15px * var(--font-scale, 1.0));
     color: var(--text-muted);
 }
 
@@ -499,7 +499,7 @@ body {
     right: -4px;
     background: var(--danger);
     color: #FFF;
-    font-size: 11px;
+    font-size: calc(11px * var(--font-scale, 1.0));
     font-weight: 800;
     width: 18px;
     height: 18px;
@@ -526,7 +526,7 @@ body {
 }
 
 .stat-label {
-    font-size: 16px;
+    font-size: calc(16px * var(--font-scale, 1.0));
     color: var(--text-muted);
     margin-bottom: 8px;
     font-weight: 700;
@@ -534,14 +534,14 @@ body {
 
 .stat-val {
     font-family: var(--font-heading);
-    font-size: 24px;
+    font-size: calc(24px * var(--font-scale, 1.0));
     font-weight: 800;
     color: var(--text-main);
     margin-bottom: 8px;
 }
 
 .stat-change {
-    font-size: 15px;
+    font-size: calc(15px * var(--font-scale, 1.0));
     font-weight: 700;
     color: var(--text-muted);
 }
@@ -561,8 +561,9 @@ body {
     background: var(--bg-card);
     border: 2px solid var(--border-color);
     border-radius: 18px;
-    padding: 0 16px;
-    height: 72px; /* Taller button for easier tapping */
+    padding: 10px 16px;
+    min-height: 72px;
+    height: auto; /* Auto height on wrap */
     display: flex;
     flex-direction: row; /* row layout */
     align-items: center;
@@ -586,7 +587,7 @@ body {
     width: 48px;
     height: 48px;
     border-radius: 12px;
-    font-size: 20px;
+    font-size: calc(20px * var(--font-scale, 1.0));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -598,7 +599,7 @@ body {
 .action-icon.bg-emerald { background: rgba(16, 185, 129, 0.1); color: #059669; border: 2px solid rgba(16, 185, 129, 0.2); }
 
 .action-card span {
-    font-size: 20px; /* Enlarged font size */
+    font-size: calc(20px * var(--font-scale, 1.0)); /* Enlarged font size */
     font-weight: 700;
     color: var(--text-main);
     flex-grow: 1;
@@ -609,7 +610,7 @@ body {
     content: '\f054';
     font-family: 'Font Awesome 6 Free';
     font-weight: 900;
-    font-size: 18px;
+    font-size: calc(18px * var(--font-scale, 1.0));
     color: var(--text-muted);
     margin-left: auto;
 }
@@ -624,18 +625,18 @@ body {
 }
 
 .alert-icon {
-    font-size: 22px;
+    font-size: calc(22px * var(--font-scale, 1.0));
     color: #D97706;
 }
 
 .alert-info h5 {
-    font-size: 18px;
+    font-size: calc(18px * var(--font-scale, 1.0));
     font-weight: 700;
     color: #78350F;
 }
 
 .alert-info p {
-    font-size: 16px;
+    font-size: calc(16px * var(--font-scale, 1.0));
     color: #92400E;
     font-weight: 600;
 }
@@ -664,16 +665,16 @@ body {
 }
 
 .mock-qr-code {
-    font-size: 120px;
+    font-size: calc(120px * var(--font-scale, 1.0));
 }
 
 .scan-instructions p {
-    font-size: 18px;
+    font-size: calc(18px * var(--font-scale, 1.0));
     font-weight: 700;
 }
 
 .scan-simulation-tip {
-    font-size: 15px;
+    font-size: calc(15px * var(--font-scale, 1.0));
     font-weight: 700;
     color: var(--warning);
 }
@@ -693,12 +694,12 @@ body {
 }
 
 .summary-label {
-    font-size: 15px;
+    font-size: calc(15px * var(--font-scale, 1.0));
     font-weight: 700;
 }
 
 .summary-value {
-    font-size: 26px;
+    font-size: calc(26px * var(--font-scale, 1.0));
 }
 
 .summary-value.highlight {
@@ -706,7 +707,7 @@ body {
 }
 
 .summary-value .unit {
-    font-size: 17px;
+    font-size: calc(17px * var(--font-scale, 1.0));
     font-weight: 700;
 }
 
@@ -729,12 +730,12 @@ body {
 }
 
 .product-details h3 {
-    font-size: 21px;
+    font-size: calc(21px * var(--font-scale, 1.0));
     font-weight: 700;
 }
 
 .product-code {
-    font-size: 16px;
+    font-size: calc(16px * var(--font-scale, 1.0));
     font-weight: 700;
 }
 
@@ -744,12 +745,14 @@ body {
 }
 
 .size-btn {
-    height: 64px;
+    min-height: 64px;
+    height: auto;
+    padding: 8px 12px;
     border-radius: 16px;
     border: 2px solid var(--border-color);
     background: #FFFFFF;
     color: var(--text-main);
-    font-size: 20px;
+    font-size: calc(20px * var(--font-scale, 1.0));
     font-weight: 700;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
 }
@@ -769,7 +772,7 @@ body {
 
 .btn-sub-badge {
     bottom: 6px;
-    font-size: 10px;
+    font-size: calc(10px * var(--font-scale, 1.0));
     font-weight: 700;
 }
 
@@ -780,10 +783,12 @@ body {
 }
 
 .filter-select-wrapper select {
-    height: 48px;
+    min-height: 48px;
+    height: auto;
+    padding: 8px 12px;
     background: #FFFFFF;
     border: 2px solid var(--border-color);
-    font-size: 17px;
+    font-size: calc(17px * var(--font-scale, 1.0));
     font-weight: 700;
     color: var(--text-main);
 }
@@ -804,12 +809,12 @@ body {
 }
 
 .store-info h4 {
-    font-size: 19px;
+    font-size: calc(19px * var(--font-scale, 1.0));
     font-weight: 700;
 }
 
 .store-info p {
-    font-size: 16px;
+    font-size: calc(16px * var(--font-scale, 1.0));
     font-weight: 500;
 }
 
@@ -820,7 +825,7 @@ body {
 .stock-count-bubble {
     padding: 6px 12px;
     border-radius: 12px;
-    font-size: 17px;
+    font-size: calc(17px * var(--font-scale, 1.0));
     font-weight: 800;
 }
 
@@ -830,25 +835,26 @@ body {
 
 /* Float Cart Preview on Scan screen */
 .scan-cart-preview {
-    height: 74px;
+    min-height: 74px;
+    height: auto;
     background: #FFFFFF;
     border-top: 2px solid var(--border-color);
-    padding: 0 20px;
+    padding: 8px 20px;
     box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.05);
 }
 
 .cart-preview-info i {
-    font-size: 24px;
+    font-size: calc(24px * var(--font-scale, 1.0));
     color: var(--primary);
 }
 
 .cart-preview-count {
-    font-size: 17px;
+    font-size: calc(17px * var(--font-scale, 1.0));
     font-weight: 700;
 }
 
 .cart-preview-total {
-    font-size: 15px;
+    font-size: calc(15px * var(--font-scale, 1.0));
     font-weight: 700;
 }
 
@@ -874,12 +880,12 @@ body {
 }
 
 .cart-item-title {
-    font-size: 18px;
+    font-size: calc(18px * var(--font-scale, 1.0));
     font-weight: 700;
 }
 
 .cart-item-meta {
-    font-size: 15px;
+    font-size: calc(15px * var(--font-scale, 1.0));
     font-weight: 600;
 }
 
@@ -891,17 +897,17 @@ body {
 }
 
 .qty-btn {
-    font-size: 18px;
+    font-size: calc(18px * var(--font-scale, 1.0));
     color: var(--text-main);
 }
 
 .qty-val {
-    font-size: 17px;
+    font-size: calc(17px * var(--font-scale, 1.0));
     font-weight: 700;
 }
 
 .cart-item-price {
-    font-size: 18px;
+    font-size: calc(18px * var(--font-scale, 1.0));
     font-weight: 800;
     color: var(--primary);
 }
@@ -916,19 +922,19 @@ body {
 }
 
 .pricing-row {
-    font-size: 17px;
+    font-size: calc(17px * var(--font-scale, 1.0));
     font-weight: 600;
     color: var(--text-muted);
 }
 
 .pricing-row.total {
-    font-size: 20px;
+    font-size: calc(20px * var(--font-scale, 1.0));
     font-weight: 700;
     color: var(--text-main);
 }
 
 .pricing-row.total .highlight {
-    font-size: 26px;
+    font-size: calc(26px * var(--font-scale, 1.0));
     color: var(--primary);
 }
 
@@ -942,13 +948,15 @@ body {
 }
 
 .form-row label {
-    font-size: 16px;
+    font-size: calc(16px * var(--font-scale, 1.0));
     font-weight: 700;
 }
 
 .form-row input {
-    height: 48px;
-    font-size: 18px;
+    min-height: 48px;
+    height: auto;
+    padding: 6px 12px;
+    font-size: calc(18px * var(--font-scale, 1.0));
     font-weight: 700;
     border: 2px solid var(--border-color);
     background: #FFFFFF;
@@ -964,12 +972,12 @@ body {
 }
 
 .search-bar i {
-    font-size: 18px;
+    font-size: calc(18px * var(--font-scale, 1.0));
     color: var(--text-muted);
 }
 
 .search-bar input {
-    font-size: 17px;
+    font-size: calc(17px * var(--font-scale, 1.0));
     font-weight: 700;
     color: var(--text-main);
 }
@@ -987,12 +995,12 @@ body {
 }
 
 .order-id {
-    font-size: 18px;
+    font-size: calc(18px * var(--font-scale, 1.0));
     font-weight: 700;
 }
 
 .order-status {
-    font-size: 13px;
+    font-size: calc(13px * var(--font-scale, 1.0));
     font-weight: 800;
     padding: 4px 10px;
 }
@@ -1000,12 +1008,12 @@ body {
 .order-status.completed { background: #D1FAE5; color: #065F46; }
 
 .order-details p {
-    font-size: 16px;
+    font-size: calc(16px * var(--font-scale, 1.0));
     font-weight: 500;
 }
 
 .order-price {
-    font-size: 21px;
+    font-size: calc(21px * var(--font-scale, 1.0));
     font-weight: 800;
     color: var(--primary);
 }
@@ -1030,17 +1038,17 @@ body {
     align-items: center;
     justify-content: center;
     color: var(--primary);
-    font-size: 32px;
+    font-size: calc(32px * var(--font-scale, 1.0));
     margin-bottom: 14px;
 }
 
 .user-profile-card h2 {
-    font-size: 24px;
+    font-size: calc(24px * var(--font-scale, 1.0));
     font-weight: 700;
 }
 
 .user-role {
-    font-size: 16px;
+    font-size: calc(16px * var(--font-scale, 1.0));
     font-weight: 700;
 }
 
@@ -1053,7 +1061,7 @@ body {
     border: 2px solid var(--border-color);
     border-radius: 14px;
     padding: 14px 18px;
-    font-size: 17px;
+    font-size: calc(17px * var(--font-scale, 1.0));
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
 }
 
@@ -1074,12 +1082,12 @@ body {
 }
 
 .menu-item-left {
-    font-size: 18px;
+    font-size: calc(18px * var(--font-scale, 1.0));
     font-weight: 700;
 }
 
 .menu-item-left i {
-    font-size: 18px;
+    font-size: calc(18px * var(--font-scale, 1.0));
     color: var(--primary);
 }
 
@@ -1098,11 +1106,11 @@ body {
 }
 
 .nav-item i {
-    font-size: 22px;
+    font-size: calc(22px * var(--font-scale, 1.0));
 }
 
 .nav-item span {
-    font-size: 13px;
+    font-size: calc(13px * var(--font-scale, 1.0));
     font-weight: 700;
 }
 
@@ -1124,24 +1132,24 @@ body {
     background: #D1FAE5;
     border: 2px solid #34D399;
     color: #065F46;
-    font-size: 32px;
+    font-size: calc(32px * var(--font-scale, 1.0));
 }
 
 .success-card h2 {
-    font-size: 24px;
+    font-size: calc(24px * var(--font-scale, 1.0));
     font-weight: 700;
     color: var(--text-main);
 }
 
 .success-order-id {
-    font-size: 17px;
+    font-size: calc(17px * var(--font-scale, 1.0));
     background: rgba(29, 78, 216, 0.1);
     color: var(--primary);
     padding: 4px 12px;
 }
 
 .success-message {
-    font-size: 16px;
+    font-size: calc(16px * var(--font-scale, 1.0));
     font-weight: 600;
     color: var(--text-muted);
 }

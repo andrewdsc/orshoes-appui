@@ -11,9 +11,9 @@
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="index.css?v=4">
+    <link rel="stylesheet" href="index.css?v=5">
     <!-- PWA Manifest & Mobile Meta Tags -->
-    <link rel="manifest" href="manifest.json?v=4">
+    <link rel="manifest" href="manifest.json?v=5">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Orshoes">
@@ -136,42 +136,42 @@
                         <div style="width: 48px;"></div>
                     </div>
                     <div class="search-bar-container" style="display: flex; align-items: center; padding: 12px 16px; background: #F3F4F6; gap: 10px; border-bottom: 2px solid var(--border-color);">
-                        <button id="btn-inv-scan-trigger" style="background: var(--primary); border: none; font-size: 20px; color: #FFFFFF; cursor: pointer; display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);"><i class="fa-solid fa-qrcode"></i></button>
+                        <button id="btn-inv-scan-trigger" style="background: var(--primary); border: none; font-size: calc(20px * var(--font-scale, 1.0)); color: #FFFFFF; cursor: pointer; display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);"><i class="fa-solid fa-qrcode"></i></button>
                         <div class="search-input-wrapper" style="flex-grow: 1; display: flex; align-items: center; background: #FFFFFF; border: 2.5px solid var(--border-color); border-radius: 12px; padding: 0 12px; height: 44px;">
-                            <i class="fa-solid fa-magnifying-glass" style="color: var(--text-muted); margin-right: 8px; font-size: 16px;"></i>
-                            <input type="text" id="inv-search-field" placeholder="品號/品名/條碼編號" style="border: none; background: transparent; font-size: 18px; font-weight: 700; width: 100%; outline: none; color: var(--text-main);">
+                            <i class="fa-solid fa-magnifying-glass" style="color: var(--text-muted); margin-right: 8px; font-size: calc(16px * var(--font-scale, 1.0));"></i>
+                            <input type="text" id="inv-search-field" placeholder="品號/品名/條碼編號" style="border: none; background: transparent; font-size: calc(18px * var(--font-scale, 1.0)); font-weight: 700; width: 100%; outline: none; color: var(--text-main);">
                         </div>
-                        <button id="btn-inv-search-submit" style="background: transparent; border: none; font-size: 16px; font-weight: 800; color: var(--primary); cursor: pointer; padding: 8px 4px;">搜尋</button>
+                        <button id="btn-inv-search-submit" style="background: transparent; border: none; font-size: calc(16px * var(--font-scale, 1.0)); font-weight: 800; color: var(--primary); cursor: pointer; padding: 8px 4px;">搜尋</button>
                     </div>
                     <div class="screen-content scrollable" id="inv-query-list-container" style="padding: 0; background: #FFFFFF;">
                         <!-- List of items -->
                         <div class="product-query-item" data-id="022800BL-35" style="padding: 18px 16px; border-bottom: 2px solid #E5E7EB; cursor: pointer; transition: background 0.2s;">
-                            <h4 style="font-size: 20px; font-weight: 800; color: #111827; margin-bottom: 8px;">022800BL-35-勿點選</h4>
-                            <p style="font-size: 16px; color: #4B5563; margin-bottom: 4px; font-weight: 700;">條碼編號：</p>
-                            <p style="font-size: 16px; color: #4B5563; margin-bottom: 4px; font-weight: 700;">主要商品分類：102</p>
-                            <p style="font-size: 16px; color: #4B5563; margin-bottom: 4px; font-weight: 700;">可用總庫存量：<span style="font-weight: 800; color: var(--danger);">0 雙</span></p>
-                            <p style="font-size: 16px; color: #4B5563; font-weight: 700;">現有庫存量：0 雙</p>
+                            <h4 style="font-size: calc(20px * var(--font-scale, 1.0)); font-weight: 800; color: #111827; margin-bottom: 8px;">022800BL-35-勿點選</h4>
+                            <p style="font-size: calc(16px * var(--font-scale, 1.0)); color: #4B5563; margin-bottom: 4px; font-weight: 700;">條碼編號：</p>
+                            <p style="font-size: calc(16px * var(--font-scale, 1.0)); color: #4B5563; margin-bottom: 4px; font-weight: 700;">主要商品分類：102</p>
+                            <p style="font-size: calc(16px * var(--font-scale, 1.0)); color: #4B5563; margin-bottom: 4px; font-weight: 700;">可用總庫存量：<span style="font-weight: 800; color: var(--danger);">0 雙</span></p>
+                            <p style="font-size: calc(16px * var(--font-scale, 1.0)); color: #4B5563; font-weight: 700;">現有庫存量：0 雙</p>
                         </div>
                         <div class="product-query-item" data-id="022800BL-36" style="padding: 18px 16px; border-bottom: 2px solid #E5E7EB; cursor: pointer; transition: background 0.2s;">
-                            <h4 style="font-size: 20px; font-weight: 800; color: #111827; margin-bottom: 8px;">022800BL-36-勿點選</h4>
-                            <p style="font-size: 16px; color: #4B5563; margin-bottom: 4px; font-weight: 700;">條碼編號：</p>
-                            <p style="font-size: 16px; color: #4B5563; margin-bottom: 4px; font-weight: 700;">主要商品分類：102</p>
-                            <p style="font-size: 16px; color: #4B5563; margin-bottom: 4px; font-weight: 700;">可用總庫存量：<span style="font-weight: 800; color: var(--danger);">0 雙</span></p>
-                            <p style="font-size: 16px; color: #4B5563; font-weight: 700;">現有庫存量：0 雙</p>
+                            <h4 style="font-size: calc(20px * var(--font-scale, 1.0)); font-weight: 800; color: #111827; margin-bottom: 8px;">022800BL-36-勿點選</h4>
+                            <p style="font-size: calc(16px * var(--font-scale, 1.0)); color: #4B5563; margin-bottom: 4px; font-weight: 700;">條碼編號：</p>
+                            <p style="font-size: calc(16px * var(--font-scale, 1.0)); color: #4B5563; margin-bottom: 4px; font-weight: 700;">主要商品分類：102</p>
+                            <p style="font-size: calc(16px * var(--font-scale, 1.0)); color: #4B5563; margin-bottom: 4px; font-weight: 700;">可用總庫存量：<span style="font-weight: 800; color: var(--danger);">0 雙</span></p>
+                            <p style="font-size: calc(16px * var(--font-scale, 1.0)); color: #4B5563; font-weight: 700;">現有庫存量：0 雙</p>
                         </div>
                         <div class="product-query-item" data-id="022800BL-37" style="padding: 18px 16px; border-bottom: 2px solid #E5E7EB; cursor: pointer; transition: background 0.2s;">
-                            <h4 style="font-size: 20px; font-weight: 800; color: #111827; margin-bottom: 8px;">022800BL-37-勿點選</h4>
-                            <p style="font-size: 16px; color: #4B5563; margin-bottom: 4px; font-weight: 700;">條碼編號：</p>
-                            <p style="font-size: 16px; color: #4B5563; margin-bottom: 4px; font-weight: 700;">主要商品分類：102</p>
-                            <p style="font-size: 16px; color: #4B5563; margin-bottom: 4px; font-weight: 700;">可用總庫存量：<span style="font-weight: 800; color: var(--danger);">0 雙</span></p>
-                            <p style="font-size: 16px; color: #4B5563; font-weight: 700;">現有庫存量：0 雙</p>
+                            <h4 style="font-size: calc(20px * var(--font-scale, 1.0)); font-weight: 800; color: #111827; margin-bottom: 8px;">022800BL-37-勿點選</h4>
+                            <p style="font-size: calc(16px * var(--font-scale, 1.0)); color: #4B5563; margin-bottom: 4px; font-weight: 700;">條碼編號：</p>
+                            <p style="font-size: calc(16px * var(--font-scale, 1.0)); color: #4B5563; margin-bottom: 4px; font-weight: 700;">主要商品分類：102</p>
+                            <p style="font-size: calc(16px * var(--font-scale, 1.0)); color: #4B5563; margin-bottom: 4px; font-weight: 700;">可用總庫存量：<span style="font-weight: 800; color: var(--danger);">0 雙</span></p>
+                            <p style="font-size: calc(16px * var(--font-scale, 1.0)); color: #4B5563; font-weight: 700;">現有庫存量：0 雙</p>
                         </div>
                         <div class="product-query-item" data-id="SH-2024001" style="padding: 18px 16px; border-bottom: 2px solid #E5E7EB; cursor: pointer; transition: background 0.2s;">
-                            <h4 style="font-size: 20px; font-weight: 800; color: #111827; margin-bottom: 8px;">經典手工牛皮鞋 #SH-2024001</h4>
-                            <p style="font-size: 16px; color: #4B5563; margin-bottom: 4px; font-weight: 700;">條碼編號：4710002024001</p>
-                            <p style="font-size: 16px; color: #4B5563; margin-bottom: 4px; font-weight: 700;">主要商品分類：102</p>
-                            <p style="font-size: 16px; color: #4B5563; margin-bottom: 4px; font-weight: 700;">可用總庫存量：<span style="font-weight: 800; color: var(--primary);">15 雙</span></p>
-                            <p style="font-size: 16px; color: #4B5563; font-weight: 700;">現有庫存量：15 雙</p>
+                            <h4 style="font-size: calc(20px * var(--font-scale, 1.0)); font-weight: 800; color: #111827; margin-bottom: 8px;">經典手工牛皮鞋 #SH-2024001</h4>
+                            <p style="font-size: calc(16px * var(--font-scale, 1.0)); color: #4B5563; margin-bottom: 4px; font-weight: 700;">條碼編號：4710002024001</p>
+                            <p style="font-size: calc(16px * var(--font-scale, 1.0)); color: #4B5563; margin-bottom: 4px; font-weight: 700;">主要商品分類：102</p>
+                            <p style="font-size: calc(16px * var(--font-scale, 1.0)); color: #4B5563; margin-bottom: 4px; font-weight: 700;">可用總庫存量：<span style="font-weight: 800; color: var(--primary);">15 雙</span></p>
+                            <p style="font-size: calc(16px * var(--font-scale, 1.0)); color: #4B5563; font-weight: 700;">現有庫存量：15 雙</p>
                         </div>
                     </div>
                 </div>
@@ -291,57 +291,57 @@
                         <div style="width: 48px;"></div>
                     </div>
                     <div class="search-bar-container" style="display: flex; align-items: center; padding: 12px 16px; background: #F3F4F6; gap: 10px; border-bottom: 2px solid var(--border-color);">
-                        <button id="btn-order-scan-trigger" style="background: var(--primary); border: none; font-size: 20px; color: #FFFFFF; cursor: pointer; display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);"><i class="fa-solid fa-qrcode"></i></button>
+                        <button id="btn-order-scan-trigger" style="background: var(--primary); border: none; font-size: calc(20px * var(--font-scale, 1.0)); color: #FFFFFF; cursor: pointer; display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);"><i class="fa-solid fa-qrcode"></i></button>
                         <div class="search-input-wrapper" style="flex-grow: 1; display: flex; align-items: center; background: #FFFFFF; border: 2.5px solid var(--border-color); border-radius: 12px; padding: 0 12px; height: 44px;">
-                            <i class="fa-solid fa-magnifying-glass" style="color: var(--text-muted); margin-right: 8px; font-size: 16px;"></i>
-                            <input type="text" id="order-search-field" placeholder="品號/品名/條碼編號" style="border: none; background: transparent; font-size: 18px; font-weight: 700; width: 100%; outline: none; color: var(--text-main);">
+                            <i class="fa-solid fa-magnifying-glass" style="color: var(--text-muted); margin-right: 8px; font-size: calc(16px * var(--font-scale, 1.0));"></i>
+                            <input type="text" id="order-search-field" placeholder="品號/品名/條碼編號" style="border: none; background: transparent; font-size: calc(18px * var(--font-scale, 1.0)); font-weight: 700; width: 100%; outline: none; color: var(--text-main);">
                         </div>
-                        <button id="btn-order-search-submit" style="background: transparent; border: none; font-size: 16px; font-weight: 800; color: var(--primary); cursor: pointer; padding: 8px 4px;">搜尋</button>
+                        <button id="btn-order-search-submit" style="background: transparent; border: none; font-size: calc(16px * var(--font-scale, 1.0)); font-weight: 800; color: var(--primary); cursor: pointer; padding: 8px 4px;">搜尋</button>
                     </div>
                     <div class="screen-content scrollable" id="order-query-list-container" style="padding: 0; background: #FFFFFF; padding-bottom: 120px;">
                         <!-- List of items -->
                         <div class="product-order-item" data-id="022800BL-35" style="padding: 18px 16px; border-bottom: 2px solid #E5E7EB; cursor: pointer; transition: background 0.2s;">
-                            <h4 style="font-size: 20px; font-weight: 800; color: #111827; margin-bottom: 8px;">022800BL-35-勿點選</h4>
-                            <p style="font-size: 16px; color: #4B5563; margin-bottom: 4px; font-weight: 700;">條碼編號：</p>
-                            <p style="font-size: 16px; color: #4B5563; margin-bottom: 4px; font-weight: 700;">主要商品分類：102</p>
-                            <p style="font-size: 16px; color: #4B5563; margin-bottom: 4px; font-weight: 700;">可用總庫存量：<span style="font-weight: 800; color: var(--danger);">0 雙</span></p>
-                            <p style="font-size: 16px; color: #4B5563; font-weight: 700;">現有庫存量：0 雙</p>
+                            <h4 style="font-size: calc(20px * var(--font-scale, 1.0)); font-weight: 800; color: #111827; margin-bottom: 8px;">022800BL-35-勿點選</h4>
+                            <p style="font-size: calc(16px * var(--font-scale, 1.0)); color: #4B5563; margin-bottom: 4px; font-weight: 700;">條碼編號：</p>
+                            <p style="font-size: calc(16px * var(--font-scale, 1.0)); color: #4B5563; margin-bottom: 4px; font-weight: 700;">主要商品分類：102</p>
+                            <p style="font-size: calc(16px * var(--font-scale, 1.0)); color: #4B5563; margin-bottom: 4px; font-weight: 700;">可用總庫存量：<span style="font-weight: 800; color: var(--danger);">0 雙</span></p>
+                            <p style="font-size: calc(16px * var(--font-scale, 1.0)); color: #4B5563; font-weight: 700;">現有庫存量：0 雙</p>
                         </div>
                         <div class="product-order-item" data-id="022800BL-36" style="padding: 18px 16px; border-bottom: 2px solid #E5E7EB; cursor: pointer; transition: background 0.2s;">
-                            <h4 style="font-size: 20px; font-weight: 800; color: #111827; margin-bottom: 8px;">022800BL-36-勿點選</h4>
-                            <p style="font-size: 16px; color: #4B5563; margin-bottom: 4px; font-weight: 700;">條碼編號：</p>
-                            <p style="font-size: 16px; color: #4B5563; margin-bottom: 4px; font-weight: 700;">主要商品分類：102</p>
-                            <p style="font-size: 16px; color: #4B5563; margin-bottom: 4px; font-weight: 700;">可用總庫存量：<span style="font-weight: 800; color: var(--danger);">0 雙</span></p>
-                            <p style="font-size: 16px; color: #4B5563; font-weight: 700;">現有庫存量：0 雙</p>
+                            <h4 style="font-size: calc(20px * var(--font-scale, 1.0)); font-weight: 800; color: #111827; margin-bottom: 8px;">022800BL-36-勿點選</h4>
+                            <p style="font-size: calc(16px * var(--font-scale, 1.0)); color: #4B5563; margin-bottom: 4px; font-weight: 700;">條碼編號：</p>
+                            <p style="font-size: calc(16px * var(--font-scale, 1.0)); color: #4B5563; margin-bottom: 4px; font-weight: 700;">主要商品分類：102</p>
+                            <p style="font-size: calc(16px * var(--font-scale, 1.0)); color: #4B5563; margin-bottom: 4px; font-weight: 700;">可用總庫存量：<span style="font-weight: 800; color: var(--danger);">0 雙</span></p>
+                            <p style="font-size: calc(16px * var(--font-scale, 1.0)); color: #4B5563; font-weight: 700;">現有庫存量：0 雙</p>
                         </div>
                         <div class="product-order-item" data-id="022800BL-37" style="padding: 18px 16px; border-bottom: 2px solid #E5E7EB; cursor: pointer; transition: background 0.2s;">
-                            <h4 style="font-size: 20px; font-weight: 800; color: #111827; margin-bottom: 8px;">022800BL-37-勿點選</h4>
-                            <p style="font-size: 16px; color: #4B5563; margin-bottom: 4px; font-weight: 700;">條碼編號：</p>
-                            <p style="font-size: 16px; color: #4B5563; margin-bottom: 4px; font-weight: 700;">主要商品分類：102</p>
-                            <p style="font-size: 16px; color: #4B5563; margin-bottom: 4px; font-weight: 700;">可用總庫存量：<span style="font-weight: 800; color: var(--danger);">0 雙</span></p>
-                            <p style="font-size: 16px; color: #4B5563; font-weight: 700;">現有庫存量：0 雙</p>
+                            <h4 style="font-size: calc(20px * var(--font-scale, 1.0)); font-weight: 800; color: #111827; margin-bottom: 8px;">022800BL-37-勿點選</h4>
+                            <p style="font-size: calc(16px * var(--font-scale, 1.0)); color: #4B5563; margin-bottom: 4px; font-weight: 700;">條碼編號：</p>
+                            <p style="font-size: calc(16px * var(--font-scale, 1.0)); color: #4B5563; margin-bottom: 4px; font-weight: 700;">主要商品分類：102</p>
+                            <p style="font-size: calc(16px * var(--font-scale, 1.0)); color: #4B5563; margin-bottom: 4px; font-weight: 700;">可用總庫存量：<span style="font-weight: 800; color: var(--danger);">0 雙</span></p>
+                            <p style="font-size: calc(16px * var(--font-scale, 1.0)); color: #4B5563; font-weight: 700;">現有庫存量：0 雙</p>
                         </div>
                         <div class="product-order-item" data-id="SH-2024001" style="padding: 18px 16px; border-bottom: 2px solid #E5E7EB; cursor: pointer; transition: background 0.2s;">
-                            <h4 style="font-size: 20px; font-weight: 800; color: #111827; margin-bottom: 8px;">經典手工牛皮鞋 #SH-2024001</h4>
-                            <p style="font-size: 16px; color: #4B5563; margin-bottom: 4px; font-weight: 700;">條碼編號：4710002024001</p>
-                            <p style="font-size: 16px; color: #4B5563; margin-bottom: 4px; font-weight: 700;">主要商品分類：102</p>
-                            <p style="font-size: 16px; color: #4B5563; margin-bottom: 4px; font-weight: 700;">可用總庫存量：<span style="font-weight: 800; color: var(--primary);">15 雙</span></p>
-                            <p style="font-size: 16px; color: #4B5563; font-weight: 700;">現有庫存量：15 雙</p>
+                            <h4 style="font-size: calc(20px * var(--font-scale, 1.0)); font-weight: 800; color: #111827; margin-bottom: 8px;">經典手工牛皮鞋 #SH-2024001</h4>
+                            <p style="font-size: calc(16px * var(--font-scale, 1.0)); color: #4B5563; margin-bottom: 4px; font-weight: 700;">條碼編號：4710002024001</p>
+                            <p style="font-size: calc(16px * var(--font-scale, 1.0)); color: #4B5563; margin-bottom: 4px; font-weight: 700;">主要商品分類：102</p>
+                            <p style="font-size: calc(16px * var(--font-scale, 1.0)); color: #4B5563; margin-bottom: 4px; font-weight: 700;">可用總庫存量：<span style="font-weight: 800; color: var(--primary);">15 雙</span></p>
+                            <p style="font-size: calc(16px * var(--font-scale, 1.0)); color: #4B5563; font-weight: 700;">現有庫存量：15 雙</p>
                         </div>
                     </div>
                     <!-- Cart Preview Bar at the bottom of search list -->
-                    <div id="list-cart-preview-bar" style="position: absolute; bottom: 0; left: 0; right: 0; height: 76px; background: #FFFBEB; border-top: 2.5px solid #FBBF24; display: none; align-items: center; justify-content: space-between; padding: 0 20px; z-index: 10; box-shadow: 0 -4px 10px rgba(0,0,0,0.05);">
+                    <div id="list-cart-preview-bar" style="position: absolute; bottom: 0; left: 0; right: 0; min-height: 76px; height: auto; background: #FFFBEB; border-top: 2.5px solid #FBBF24; display: none; align-items: center; justify-content: space-between; padding: 8px 20px; z-index: 10; box-shadow: 0 -4px 10px rgba(0,0,0,0.05);">
                         <div style="display: flex; align-items: center; gap: 12px;">
-                            <div style="position: relative; width: 48px; height: 48px; background: var(--primary); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #FFFFFF; font-size: 20px;">
+                            <div style="position: relative; width: 48px; height: 48px; background: var(--primary); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #FFFFFF; font-size: calc(20px * var(--font-scale, 1.0));">
                                 <i class="fa-solid fa-cart-shopping"></i>
-                                <span id="list-cart-count" style="position: absolute; top: -6px; right: -6px; background: var(--danger); color: #FFFFFF; font-size: 12px; font-weight: 800; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid #FFFBEB;">0</span>
+                                <span id="list-cart-count" style="position: absolute; top: -6px; right: -6px; background: var(--danger); color: #FFFFFF; font-size: calc(12px * var(--font-scale, 1.0)); font-weight: 800; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid #FFFBEB;">0</span>
                             </div>
                             <div>
-                                <div style="font-size: 18px; font-weight: 800; color: var(--text-main);">已選取商品</div>
-                                <div style="font-size: 16px; color: var(--text-muted); font-weight: 700;">總金額: <span id="list-cart-total" style="color: var(--danger); font-weight: 800;">NT$ 0</span></div>
+                                <div style="font-size: calc(18px * var(--font-scale, 1.0)); font-weight: 800; color: var(--text-main);">已選取商品</div>
+                                <div style="font-size: calc(16px * var(--font-scale, 1.0)); color: var(--text-muted); font-weight: 700;">總金額: <span id="list-cart-total" style="color: var(--danger); font-weight: 800;">NT$ 0</span></div>
                             </div>
                         </div>
-                        <button class="btn btn-primary" id="btn-list-checkout-next" style="height: 46px; padding: 0 20px; font-size: 16px; font-weight: 800; border-radius: 10px; box-shadow: none;">下一步 <i class="fa-solid fa-chevron-right"></i></button>
+                        <button class="btn btn-primary" id="btn-list-checkout-next" style="height: 46px; padding: 0 20px; font-size: calc(16px * var(--font-scale, 1.0)); font-weight: 800; border-radius: 10px; box-shadow: none;">下一步 <i class="fa-solid fa-chevron-right"></i></button>
                     </div>
                 </div>
 
@@ -438,16 +438,16 @@
                         <!-- Multi-criteria Search Filter Group -->
                         <div class="history-filter-group" style="background: #FFFFFF; border: 2px solid var(--border-color); border-radius: 18px; padding: 16px; margin-bottom: 20px; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);">
                             <div class="form-row" style="display: flex; flex-direction: column; gap: 6px;">
-                                <label for="filter-date" style="font-size: 17px; font-weight: 700; color: var(--text-main);">訂單日期</label>
-                                <input type="date" id="filter-date" style="height: 48px; font-size: 18px; font-weight: 700; border: 2px solid var(--border-color); border-radius: 12px; padding: 0 12px; background: #FFFFFF; color: var(--text-main); outline: none;">
+                                <label for="filter-date" style="font-size: calc(17px * var(--font-scale, 1.0)); font-weight: 700; color: var(--text-main);">訂單日期</label>
+                                <input type="date" id="filter-date" style="height: 48px; font-size: calc(18px * var(--font-scale, 1.0)); font-weight: 700; border: 2px solid var(--border-color); border-radius: 12px; padding: 0 12px; background: #FFFFFF; color: var(--text-main); outline: none;">
                             </div>
                             <div class="form-row" style="display: flex; flex-direction: column; gap: 6px;">
-                                <label for="filter-name" style="font-size: 17px; font-weight: 700; color: var(--text-main);">商品名稱</label>
-                                <input type="text" id="filter-name" placeholder="輸入商品名稱" style="height: 48px; font-size: 18px; font-weight: 700; border: 2px solid var(--border-color); border-radius: 12px; padding: 0 12px; background: #FFFFFF; color: var(--text-main); outline: none;">
+                                <label for="filter-name" style="font-size: calc(17px * var(--font-scale, 1.0)); font-weight: 700; color: var(--text-main);">商品名稱</label>
+                                <input type="text" id="filter-name" placeholder="輸入商品名稱" style="height: 48px; font-size: calc(18px * var(--font-scale, 1.0)); font-weight: 700; border: 2px solid var(--border-color); border-radius: 12px; padding: 0 12px; background: #FFFFFF; color: var(--text-main); outline: none;">
                             </div>
                             <div class="form-row" style="display: flex; flex-direction: column; gap: 6px;">
-                                <label for="filter-code" style="font-size: 17px; font-weight: 700; color: var(--text-main);">商品品號</label>
-                                <input type="text" id="filter-code" placeholder="輸入商品品號 (例：#SH-2024001)" style="height: 48px; font-size: 18px; font-weight: 700; border: 2px solid var(--border-color); border-radius: 12px; padding: 0 12px; background: #FFFFFF; color: var(--text-main); outline: none;">
+                                <label for="filter-code" style="font-size: calc(17px * var(--font-scale, 1.0)); font-weight: 700; color: var(--text-main);">商品品號</label>
+                                <input type="text" id="filter-code" placeholder="輸入商品品號 (例：#SH-2024001)" style="height: 48px; font-size: calc(18px * var(--font-scale, 1.0)); font-weight: 700; border: 2px solid var(--border-color); border-radius: 12px; padding: 0 12px; background: #FFFFFF; color: var(--text-main); outline: none;">
                             </div>
                             <!-- Clear filter button -->
                             <button class="btn btn-secondary btn-block" id="btn-clear-filters" style="margin-top: 6px;"><i class="fa-solid fa-rotate-left"></i> 重設篩選條件</button>
@@ -498,7 +498,7 @@
                                 </div>
                                 <i class="fa-solid fa-chevron-right text-muted"></i>
                             </button>
-                            <button class="menu-item">
+                            <button class="menu-item" id="btn-goto-settings">
                                 <div class="menu-item-left">
                                     <i class="fa-solid fa-sliders"></i>
                                     <span>實用設置</span>
@@ -511,6 +511,43 @@
                         <button class="btn btn-outline-danger btn-block" id="btn-logout" style="margin-top: 30px; margin-bottom: 25px;">
                             <i class="fa-solid fa-right-from-bracket"></i> 登出系統
                         </button>
+                    </div>
+                </div>
+
+                <!-- 9.1. Settings Screen -->
+                <div id="screen-settings" class="screen">
+                    <div class="screen-header">
+                        <button class="back-btn" id="btn-settings-back"><i class="fa-solid fa-chevron-left"></i></button>
+                        <h2>實用設置</h2>
+                        <div style="width: 48px;"></div>
+                    </div>
+                    <div class="screen-content scrollable">
+                        <div class="settings-group-card" style="background: #FFFFFF; border: 2px solid var(--border-color); border-radius: 18px; padding: 20px; margin-bottom: 20px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);">
+                            <h4 style="font-size: calc(19px * var(--font-scale, 1.0)); font-weight: 800; color: var(--primary); margin-bottom: 12px;"><i class="fa-solid fa-font"></i> 全域字型大小</h4>
+                            <p style="font-size: calc(16px * var(--font-scale, 1.0)); color: var(--text-muted); margin-bottom: 20px; line-height: 1.5;">
+                                調整系統顯示字型的大小。若字型較大，內容會自動折行，容器高度亦會自動擴充配合。
+                            </p>
+                            
+                            <!-- Font Size Options Selector -->
+                            <div class="font-scale-options" style="display: flex; flex-direction: column; gap: 12px;">
+                                <label style="display: flex; align-items: center; gap: 12px; cursor: pointer; padding: 12px 16px; border: 2px solid var(--border-color); border-radius: 12px; background: #F9FAFB;" id="lbl-scale-1">
+                                    <input type="radio" name="font-scale-radio" value="1.0" checked style="width: 20px; height: 20px; cursor: pointer;">
+                                    <span style="font-size: calc(17px * var(--font-scale, 1.0)); font-weight: 700; color: var(--text-main);">標準字型 (預設)</span>
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 12px; cursor: pointer; padding: 12px 16px; border: 2px solid var(--border-color); border-radius: 12px; background: #FFFFFF;" id="lbl-scale-2">
+                                    <input type="radio" name="font-scale-radio" value="1.15" style="width: 20px; height: 20px; cursor: pointer;">
+                                    <span style="font-size: calc(19px * var(--font-scale, 1.0)); font-weight: 700; color: var(--text-main);">中字型</span>
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 12px; cursor: pointer; padding: 12px 16px; border: 2px solid var(--border-color); border-radius: 12px; background: #FFFFFF;" id="lbl-scale-3">
+                                    <input type="radio" name="font-scale-radio" value="1.3" style="width: 20px; height: 20px; cursor: pointer;">
+                                    <span style="font-size: calc(21px * var(--font-scale, 1.0)); font-weight: 700; color: var(--text-main);">大字型</span>
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 12px; cursor: pointer; padding: 12px 16px; border: 2px solid var(--border-color); border-radius: 12px; background: #FFFFFF;" id="lbl-scale-4">
+                                    <input type="radio" name="font-scale-radio" value="1.45" style="width: 20px; height: 20px; cursor: pointer;">
+                                    <span style="font-size: calc(23px * var(--font-scale, 1.0)); font-weight: 800; color: var(--text-main);">最大字型</span>
+                                </label>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -556,6 +593,6 @@
     </div>
 
     <!-- Main JS Application Logic -->
-    <script src="app.js?v=4"></script>
+    <script src="app.js?v=5"></script>
 </body>
 </html>
