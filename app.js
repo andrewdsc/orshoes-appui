@@ -795,7 +795,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Helper: Load and apply font scale from local storage
         function applySavedFontScale() {
-            const savedScale = localStorage.getItem('orshoes-font-scale') || '1.0';
+            const savedScale = localStorage.getItem('orshoes-font-scale') || '1.45';
             document.documentElement.style.setProperty('--font-scale', savedScale);
             
             const targetRadio = document.querySelector(`input[name="font-scale-radio"][value="${savedScale}"]`);

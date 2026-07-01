@@ -1,4 +1,4 @@
-const CACHE_NAME = 'orshoes-cache-v5';
+const CACHE_NAME = 'orshoes-cache-v6';
 const ASSETS = [
     './',
     './index.html',

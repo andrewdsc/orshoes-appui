@@ -24,6 +24,7 @@
     --font-body: 'Inter', 'Noto Sans TC', sans-serif;
     
     --transition-speed: 0.2s;
+    --font-scale: 1.45; /* Default scale is now Maximum */
 }
 
 * {
@@ -1180,5 +1181,9 @@ body {
     .screen {
         top: env(safe-area-inset-top, 20px);
         bottom: 84px;
+    }
+    
+    .screen-content {
+        padding: 14px; /* Give more space for large text on mobile screens */
     }
 }
